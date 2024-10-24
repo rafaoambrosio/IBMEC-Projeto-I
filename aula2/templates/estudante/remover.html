@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>::app-School</title>
+    </head>
+    <body>
+        <header>
+            <h1>app-School</h1>
+        </header>
+        <a href="/app-school/index">menu</a>
+        <br>
+        <a href="/app-school/estudante/listar">listar estudantes</a>
+        <br>
+        <a href="/app-school/estudante/cadastrar">cadastrar estudantes</a>
+        <br>
+        <form method='POST' action="/app-school/estudante/deletar">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome">
+            <br>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email">
+            <br>
+            <label for="idade">Idade:</label>
+            <input type="text" id="idade" name="idade">
+            <br>
+            <button type="submit">Enviar</button>
+        </form>
+    </body>
+</html>

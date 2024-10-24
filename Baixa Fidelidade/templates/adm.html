@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal do Administrador</title>
+</head>
+<body>
+    <h1>Portal do Administrador</h1>
+    <div class="tabs">
+        <ul class="tab-links">
+            <li class="active"><a href="#tab1">Adicionar Produto</a></li>
+            <li><a href="#tab2">Editar/Remover</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="tab1" class="tab active">
+                <form action="/insert" method="POST" id="adicionar">
+                    <label for="tipo">Tipo:</label>
+                    <select id="tipo" name="tipo">
+                        <option value="passeio">Passeio</option>
+                        <option value="pacote">Pacote</option>
+                    </select>
+                    <br><br>
+                    <label for="titulo">Titulo:</label>
+                    <input type="text" id="titulo" name="titulo">
+                    <br><br>
+                    <label for="localizacao">Localizacao:</label>
+                    <input type="text" id="localizacao" name="localizacao">
+                    <br><br>
+                    <label for="resumo">resumo:</label>
+                    <textarea form="adicionar" id="resumo" name="resumo"></textarea>
+                    <br><br>
+                    <label for="descricao">descricao:</label>
+                    <textarea form="adicionar" id="descricao" name="descricao"></textarea>
+                    <br><br>
+                    <label for="incluso">incluso (separado por '/./'):</label>
+                    <textarea form="adicionar" id="incluso" name="incluso"></textarea>
+                    <br><br>
+                    <label for="dicas">dicas (separado por '/./'):</label>
+                    <textarea form="adicionar" id="dicas" name="dicas"></textarea>
+                    <br><br>
+                    <label for="observacoes">observacoes (separado por '/./'):</label>
+                    <textarea form="adicionar" id="observacoes" name="observacoes"></textarea>
+                    <br><br>
+                    <label for="precos">precos (faixas por '/./', categ e valor por '/;/'):</label>
+                    <textarea form="adicionar" id="precos" name="precos"></textarea>
+                    <br><br>
+                    <label for="midias">midias (separado por '/./'):</label>
+                    <textarea form="adicionar" id="midias" name="midias"></textarea>
+                    <br><br>
+                    <label for="numero_diarias">numero diarias:</label>
+                    <input type="text" id="numero_diarias" name="numero_diarias">
+                    <br><br>
+                    <label for="hospedagem">hospedagem:</label>
+                    <select id="hospedagem" name="hospedagem">
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                    <br><br>
+                    <label for="roteiro">roteiro:</label>
+                    <textarea form="adicionar" id="roteiro" name="roteiro"></textarea>
+                    <br><br>
+                    <label for="disponivel">disponivel:</label>
+                    <select id="disponivel" name="disponivel">
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                    <br><br>
+                    <label for="data_de_saida">data de saida:</label>
+                    <input type="text" id="data_de_saida" name="data_de_saida">
+                    <br><br>
+                    <label for="limite_vagas">limite de vagas:</label>
+                    <input type="text" id="limite_vagas" name="limite_vagas">
+                    <br><br>
+                    <input type="submit" value="Adicionar Produto">
+                </form>
+            </div>
+            <div id="tab2" class="tab">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Titulo</td>
+                            <td>A</td><td>E</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for produto in produtos %}
+                        <tr>
+                            <td>{{ produto.titulo }}</td>
+                            <td>
+                                <a href="{{ url_for('editar_produto', titulo=produto.titulo, auth=senha) }}">
+                                    <button>EDITAR</button>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{{ url_for('deletar_produto', titulo=produto.titulo) }}">
+                                    <button>REMOVER</button>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .tabs {
+            width: 100%;
+            display: inline-block;
+        }
+        .tab-links:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .tab-links li {
+            float: left;
+            list-style: none;
+        }
+        .tab-links a {
+            padding: 9px 15px;
+            display: inline-block;
+            border-radius: 3px 3px 0 0;
+            background: #7FB5DA;
+            font-size: 16px;
+            font-weight: 600;
+            color: #4c4c4c;
+            transition: all linear 0.15s;
+            text-decoration: none;
+        }
+        .tab-links a:hover {
+            background: #a7cce5;
+        }
+        .tab-links .active a {
+            background: #fff;
+            color: #4c4c4c;
+        }
+        .tab-content {
+            padding: 15px;
+            border-radius: 3px;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+            background: #fff;
+        }
+        .tab {
+            display: none;
+        }
+        .tab.active {
+            display: block;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var tabs = document.querySelectorAll('.tab-links a');
+            var contents = document.querySelectorAll('.tab');
+
+            tabs.forEach(function (tab, index) {
+                tab.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    tabs.forEach(function (t) { t.parentElement.classList.remove('active'); });
+                    contents.forEach(function (c) { c.classList.remove('active'); });
+
+                    tab.parentElement.classList.add('active');
+                    contents[index].classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

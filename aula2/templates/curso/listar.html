@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>::app-School</title>
+    </head>
+    <body>
+        <header>
+            <h1>app-School</h1>
+        </header>
+        <a href="/app-school/">principal</a>
+        <br>
+        <a href="/app-school/curso/cadastrar">cadastrar curso</a>
+        <br>
+        <a href="/app-school/curso/remover">remover curso</a>
+        <table width="600">
+            <tbody>
+                {% for item in cursos %}
+                    <tr>
+                        <td>{{ item.nome }}&nbsp;&#45;&nbsp;{{ item.descricao }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Produto</title>
+</head>
+<body>
+    <h1>Adicionar Produto</h1>
+    <form action="/insert" method="POST">
+        <label for="tipo">Tipo:</label>
+        <select id="tipo" name="tipo">
+            <option value="passeio">Passeio</option>
+            <option value="pacote">Pacote</option>
+        </select>
+        <br><br>
+        <label for="titulo">Titulo:</label>
+        <input type="text" id="titulo" name="titulo">
+        <br><br>
+        <label for="localizacao">Localizacao:</label>
+        <input type="text" id="localizacao" name="localizacao">
+        <br><br>
+        <label for="resumo">resumo:</label>
+        <input type="text" id="resumo" name="resumo">
+        <br><br>
+        <label for="descricao">descricao:</label>
+        <input type="text" id="descricao" name="descricao">
+        <br><br>
+        <label for="incluso">incluso (separado por '/./'):</label>
+        <input type="text" id="incluso" name="incluso">
+        <br><br>
+        <label for="dicas">dicas (separado por '/./'):</label>
+        <input type="text" id="dicas" name="dicas">
+        <br><br>
+        <label for="observacoes">observacoes (separado por '/./'):</label>
+        <input type="text" id="observacoes" name="observacoes">
+        <br><br>
+        <label for="precos">precos (faixas por '/./', categ e valor por '/;/'):</label>
+        <input type="text" id="precos" name="precos">
+        <br><br>
+        <label for="midias">midias (separado por '/./'):</label>
+        <input type="text" id="midias" name="midias">
+        <br><br>
+        <label for="numero_diarias">numero diarias:</label>
+        <input type="text" id="numero_diarias" name="numero_diarias">
+        <br><br>
+        <label for="hospedagem">hospedagem:</label>
+        <select id="hospedagem" name="hospedagem">
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+        </select>
+        <br><br>
+        <label for="roteiro">roteiro:</label>
+        <input type="text" id="roteiro" name="roteiro">
+        <br><br>
+        <label for="disponivel">disponivel:</label>
+        <select id="disponivel" name="disponivel">
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+        </select>
+        <br><br>
+        <label for="data_de_saida">data de saida:</label>
+        <input type="text" id="data_de_saida" name="data_de_saida">
+        <br><br>
+        <label for="limite_vagas">limite de vagas:</label>
+        <input type="text" id="limite_vagas" name="limite_vagas">
+        <br><br>
+        <input type="submit" value="Adicionar Produto">
+    </form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>::app-School</title>
+    </head>
+    <body>
+        <header>
+            <h1>app-School</h1>
+        </header>
+        <a href="/app-school/">principal</a>
+        <br>
+        <a href="/app-school/professor/cadastrar">cadastrar professor</a>
+        <br>
+        <a href="/app-school/professor/remover">remover professor</a>
+        <br>
+        <table width="600">
+            <tbody>
+                {% for item in professores %}
+                    <tr>
+                        <td>{{ item.nome }}&nbsp;&#45;&nbsp;{{ item.curso }}&nbsp;&#45;&nbsp;{{ item.cpf }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>

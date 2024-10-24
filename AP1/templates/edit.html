@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Editar</title>
+    </head>
+    <body>
+        <h1>Editar</h1>
+        <form action="{{ url_for('atualizar_aluno', mat=request.args.get('id')) }}" method="POST">
+            <label for="nome">TROCAR NOME DO ALUNO POR:</label>
+            <input type="text" name="nome" id="nome" required>
+            <button type="submit">Enviar</button>
+        </form>
+    </body>
+</html>
+

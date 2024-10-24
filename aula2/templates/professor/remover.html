@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>::app-School</title>
+    </head>
+    <body>
+        <header>
+            <h1>app-School</h1>
+        </header>
+        <a href="/app-school/index">menu</a>
+        <br>
+        <a href="/app-school/professor/listar">listar professores</a>
+        <br>
+        <a href="/app-school/professor/cadastrar">remover professor</a>
+        <br>
+        <form method='POST' action="/app-school/professor/deletar">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome">
+            <br>
+            <label for="curso">Curso:</label>
+            <input type="text" id="curso" name="curso">
+            <br>
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="cpf">
+            <br>
+            <button type="submit">Enviar</button>
+        </form>
+    </body>
+</html>

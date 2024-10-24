@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>::app-School</title>
+    </head>
+    <body>
+        <header>
+            <h1>app-School</h1>
+        </header>
+        <a href="/app-school/">principal</a>
+        <a href="/app-school/full-stack/inserir">inserir</a>
+        <table width="600">
+            <tbody>
+                {% for item in lista %}
+                    <tr>
+                        <td>{{ item.nome }}&nbsp;&#45;&nbsp;{{ item.email }}&nbsp;&#45;&nbsp;{{ item.idade }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>

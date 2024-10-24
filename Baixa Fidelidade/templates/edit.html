@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Produto</title>
+</head>
+<body>
+    <h1>Editar Produto</h1>
+    <form action="{{ url_for('update', titulo=request.args.get('titulo')) }}" method="POST">
+        <label for="tipo">tipo:</label>
+        <select id="tipo" name="tipo">
+            <option value="passeio">Passeio</option>
+            <option value="pacote">Pacote</option>
+        </select>
+        <label for="localizacao">Localizacao:</label>
+        <input type="text" id="localizacao" name="localizacao" value="{{ produto.localizacao }}">
+        <br><br>
+        <label for="resumo">resumo:</label>
+        <input type="text" id="resumo" name="resumo" value="{{ produto.resumo }}">
+        <br><br>
+        <label for="descricao">descricao:</label>
+        <input type="text" id="descricao" name="descricao" value="{{ produto.descricao }}">
+        <br><br>
+        <label for="incluso">incluso (separado por '/./'):</label>
+        <input type="text" id="incluso" name="incluso" value="{{ produto.rawincluso }}">
+        <br><br>
+        <label for="dicas">dicas (separado por '/./'):</label>
+        <input type="text" id="dicas" name="dicas" value="{{ produto.rawdicas }}">
+        <br><br>
+        <label for="observacoes">observacoes (separado por '/./'):</label>
+        <input type="text" id="observacoes" name="observacoes" value="{{ produto.rawobservacoes }}">
+        <br><br>
+        <label for="precos">precos (faixas por '/./', categ e valor por '/;/'):</label>
+        <input type="text" id="precos" name="precos" value="{{ produto.rawprecos }}">
+        <br><br>
+        <label for="midias">midias (separado por '/./'):</label>
+        <input type="text" id="midias" name="midias" value="{{ produto.rawmidias }}">
+        <br><br>
+        <label for="numero_diarias">numero diarias:</label>
+        <input type="text" id="numero_diarias" name="numero_diarias" value="{{ produto.numero_diarias }}">
+        <br><br>
+        <label for="hospedagem">hospedagem:</label>
+        <select id="hospedagem" name="hospedagem">
+            <option value="Sim">SIM</option>
+            <option value="Não">NAO</option>
+        </select>
+        <br><br>
+        <label for="roteiro">roteiro:</label>
+        <input type="text" id="roteiro" name="roteiro" value="{{ produto.roteiro }}">
+        <br><br>
+        <label for="disponivel">disponivel:</label>
+        <select id="disponivel" name="disponivel" value="{{ produto.disponivel }}">
+            <option value="Sim">SIM</option>
+            <option value="Não">NAO</option>
+        </select>
+        <br><br>
+        <label for="data_de_saida">data de saida:</label>
+        <input type="text" id="data_de_saida" name="data_de_saida" value="{{ produto.data_de_saida }}">
+        <br><br>
+        <label for="limite_vagas">limite de vagas:</label>
+        <input type="text" id="limite_vagas" name="limite_vagas" value="{{ produto.limite_vagas }}">
+        <br><br>
+        <input type="submit" value="Alterar Produto">
+    </form>
+</body>
+</html>

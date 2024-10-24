@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Alunos</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .btn {
+            padding: 5px 10px;
+            margin: 2px;
+            text-decoration: none;
+            color: white;
+            border-radius: 3px;
+        }
+        .btn-edit {
+            background-color: #4CAF50;
+        }
+        .btn-remove {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Alunos</h1>
+    <a href="{{ url_for('novo_aluno') }}" class="btn btn-edit">Cadastrar Aluno</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Matrícula</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for aluno in alunos %}
+            <tr>
+                <td>{{ aluno.nome }}</td>
+                <td>{{ aluno.matricula }}</td>
+                <td>
+                    <a href="{{ url_for('editar_aluno', id=aluno.matricula) }}" class="btn btn-edit">Editar</a>
+                    <a href="{{ url_for('deletar_aluno', matricula=aluno.matricula) }}" class="btn btn-remove">Remover</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
