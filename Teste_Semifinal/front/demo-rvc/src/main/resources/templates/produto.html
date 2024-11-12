@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Details</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1 id="product-title">Product Title</h1>
+    <p><strong>Description:</strong> <span id="product-description"></span></p>
+    <p><strong>Location:</strong> <span id="product-location"></span></p>
+
+    <h2>Included Items</h2>
+    <ul id="included-items"></ul>
+
+    <h2>Tips</h2>
+    <ul id="tips"></ul>
+
+    <h2>Observations</h2>
+    <ul id="observations"></ul>
+
+    <h2>Video</h2>
+    <iframe id="video" frameborder="0" allowfullscreen></iframe>
+
+    <p><strong>Number of Days:</strong> <span id="num-days"></span></p>
+    <p><strong>Accommodation Included:</strong> <span id="accommodation-included"></span></p>
+    <p><strong>Itinerary:</strong> <span id="itinerary"></span></p>
+
+    <h2>Available Dates</h2>
+    <ul id="available-dates"></ul>
+
+    <p><strong>Seat Limit:</strong> <span id="seat-limit"></span></p>
+
+    <h2>Price Range</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Range</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody id="price-range"></tbody>
+    </table>
+
+    <script>
+        // Extract the product ID from the URL path
+        const productId = window.location.pathname.split("/").pop();
+
+        // Fetch product data from the API
+        fetch(`http://localhost:8080/adm/${productId}`)
+            .then(response => response.json())
+            .then(product => {
+                // Set product details
+                document.getElementById("product-title").textContent = product.titulo;
+                document.getElementById("product-description").textContent = product.descricao;
+                document.getElementById("product-location").textContent = product.localizacao;
+
+                // Populate Included Items
+                const includedItemsContainer = document.getElementById("included-items");
+                product.itensInclusos.forEach(item => {
+                    const li = document.createElement("li");
+                    li.textContent = item;
+                    includedItemsContainer.appendChild(li);
+                });
+
+                // Populate Tips
+                const tipsContainer = document.getElementById("tips");
+                product.dicas.forEach(dica => {
+                    const li = document.createElement("li");
+                    li.textContent = dica;
+                    tipsContainer.appendChild(li);
+                });
+
+                // Populate Observations
+                const observationsContainer = document.getElementById("observations");
+                product.observacoes.forEach(obs => {
+                    const li = document.createElement("li");
+                    li.textContent = obs;
+                    observationsContainer.appendChild(li);
+                });
+
+                // Set video URL in iframe
+                document.getElementById("video").src = product.urlVideo.replace("watch?v=", "embed/");
+
+                // Set other product details
+                document.getElementById("num-days").textContent = product.numeroDiarias;
+                document.getElementById("accommodation-included").textContent = product.hospedagemInclusa ? "Yes" : "No";
+                document.getElementById("itinerary").textContent = product.roteiro;
+
+                // Populate Available Dates
+                const availableDatesContainer = document.getElementById("available-dates");
+                product.dataDisponiveis.forEach(dateString => {
+                    const li = document.createElement("li");
+                    const date = new Date(dateString);
+                    li.textContent = date.toLocaleDateString("en-GB"); // Format as dd/MM/yyyy
+                    availableDatesContainer.appendChild(li);
+                });
+
+                // Set seat limit
+                document.getElementById("seat-limit").textContent = product.limiteVagas;
+
+                // Populate Price Range Table
+                const priceRangeContainer = document.getElementById("price-range");
+                product.faixaPreco.forEach(range => {
+                    const tr = document.createElement("tr");
+                    tr.innerHTML = `<td>${range.faixa}</td><td>${range.preco}</td>`;
+                    priceRangeContainer.appendChild(tr);
+                });
+            })
+            .catch(error => console.error("Error fetching product data:", error));
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Manage Products</title>
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+    <script th:src="@{/js/manage.js}"></script>
+</head>
+<body>
+    <h1>Manage Products</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="product-table-body">
+            <!-- Rows will be dynamically inserted here -->
+        </tbody>
+    </table>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        fetch('http://localhost:8080/adm')
+            .then(response => response.json())
+            .then(products => {
+                const tbody = document.getElementById('product-table-body');
+                products.forEach(product => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${product.id}</td>
+                        <td>${product.titulo}</td>
+                        <td>
+                            <button onclick="deleteProduct(${product.id})">Delete</button>
+                            <a href="/adm/edit/${product.id}">Edit</a>
+                        </td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error fetching products:', error));
+
+        function deleteProduct(id) {
+            fetch('http://localhost:8080/adm/' + id, {
+                method: 'DELETE'
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Product deleted');
+                    location.reload();
+                } else {
+                    alert('Error deleting product');
+                }
+            });
+        }
+        /*]]>*/
+    </script>
+</body>
+</html>

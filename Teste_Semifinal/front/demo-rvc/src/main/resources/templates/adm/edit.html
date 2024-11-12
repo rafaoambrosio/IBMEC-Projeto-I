@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Product</title>
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+    <script th:src="@{/js/edit.js}"></script>
+</head>
+<body>
+    <h1>Edit Product</h1>
+    <form id="edit-form" action="#" method="post">
+        <!-- Form fields will be populated via JavaScript -->
+        <button type="submit">Save Changes</button>
+    </form>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        const productId = /*[[${productId}]]*/ '0';
+
+        fetch('http://localhost:8080/adm/' + productId)
+            .then(response => response.json())
+            .then(product => {
+                const form = document.getElementById('edit-form');
+
+                form.innerHTML = `
+                    <label for="titulo">Title:</label>
+                    <input type="text" id="titulo" name="titulo" value="${product.titulo}" required><br>
+
+                    <label for="descricao">Description:</label>
+                    <textarea id="descricao" name="descricao" required>${product.descricao}</textarea><br>
+
+                    <label for="localizacao">Location:</label>
+                    <input type="text" id="localizacao" name="localizacao" value="${product.localizacao}" required><br>
+
+                    <!-- Include fields for all other product attributes -->
+                `;
+
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+
+                    const formData = new FormData(form);
+                    const data = {};
+                    formData.forEach((value, key) => {
+                        data[key] = value;
+                    });
+
+                    fetch('http://localhost:8080/adm/' + productId, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            alert('Product updated');
+                            window.location.href = '/adm/manage';
+                        } else {
+                            alert('Error updating product');
+                        }
+                    });
+                });
+            })
+            .catch(error => console.error('Error fetching product:', error));
+        /*]]>*/
+    </script>
+</body>
+</html>
