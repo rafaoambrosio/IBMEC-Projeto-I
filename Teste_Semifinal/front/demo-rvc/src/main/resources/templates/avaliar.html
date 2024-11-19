@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Details</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Avaliar</h1>
+    
+    <form id="reviewForm">
+        <label>Nota: <input type="number" name="notaAvaliacao" min="0" required></label>
+        <label>Comentário: <textarea name="comentarioAvaliacao"></textarea></label>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        const productId = window.location.pathname.split("/").pop();
+        document.getElementById('reviewForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Collecting form values
+            const form = event.target;
+            const nota = form.notaAvaliacao.value;
+            const comentario = form.comentarioAvaliacao.value;
+
+            // Creating the JSON object
+            const data = {
+                nota,
+                comentario
+            };
+
+            // Posting the JSON data to the specified endpoint
+            fetch(`http://localhost:8080/${productId}/avaliacoes/add`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(result => {
+                console.log("Success:", result);
+                alert("Form submitted successfully!");
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("There was an error submitting the form.");
+            });
+        });
+    </script>
+</body>
+</html>

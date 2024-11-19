@@ -21,7 +21,7 @@ public class MainController {
 
     @GetMapping("/")
     public String home(Model model) {
-        String url = "http://localhost:8080/adm";
+        String url = "http://localhost:8080/";
         List<?> data = restTemplate.getForObject(url, List.class);
         model.addAttribute("data", data);
         return "home"; // Corresponds to home.html
@@ -29,7 +29,7 @@ public class MainController {
 
     @GetMapping("/catalogo")
     public String catalogo(Model model) {
-        String url = "http://localhost:8080/adm";
+        String url = "http://localhost:8080/";
         List<?> data = restTemplate.getForObject(url, List.class);
         model.addAttribute("data", data);
         return "catalogo"; // Corresponds to catalogo.html
@@ -37,10 +37,15 @@ public class MainController {
 
     @GetMapping("/produto/{id}")
     public String produto(@PathVariable("id") Long id, Model model) {
-        String url = "http://localhost:8080/adm/" + id;
+        String url = "http://localhost:8080/" + id;
         Object data = restTemplate.getForObject(url, Object.class);
         model.addAttribute("product", data);
         return "produto";
     }
 
+    @GetMapping("/avaliar/{id}")
+    public String reviewProduct(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("productId", id);
+        return "avaliar";
+    }
 }

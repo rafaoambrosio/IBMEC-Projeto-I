@@ -13,7 +13,7 @@
 
     <script th:inline="javascript">
         /*<![CDATA[*/
-        fetch('http://localhost:8080/adm')
+        fetch('http://localhost:8080')
             .then(response => response.json())
             .then(products => {
                 const container = document.getElementById('product-cards');

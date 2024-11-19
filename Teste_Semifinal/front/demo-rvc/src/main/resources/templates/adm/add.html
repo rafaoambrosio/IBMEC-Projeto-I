@@ -9,6 +9,13 @@
     <div class="cadastro-container container-fluid my-5">
         <div class="container">
             <form id="tourForm">
+                <label>Tipo:
+                    <select name="tipo" required>
+                        <option value="pacote">Pacote</option>
+                        <option value="passeio">Passeio</option>
+                    </select>
+                </label>
+                
                 <label>Titulo: <input type="text" name="titulo" required></label>
                 
                 <label>Descricao:</label>
@@ -49,7 +56,11 @@
                     <button type="button" onclick="addRow()">Add Row</button>
                 </div>
                 
-                <label>URL Video: <input type="text" name="urlVideo" required></label>
+                <div class="dynamic-inputs">
+                    <label>URL Video:</label>
+                    <div id="url_video"></div>
+                    <button type="button" onclick="addInput('url_video', 'urlVideo')">Add URL</button>
+                </div>
                 
                 <label>Numero de Diarias: <input type="number" name="numeroDiarias" min="1" required></label>
                 
@@ -70,6 +81,17 @@
                 </div>
                 
                 <label>Limite de Vagas: <input type="number" name="limiteVagas" min="1" required></label>
+
+                <div class="dynamic-inputs">
+                    <label>Imagens:</label>
+                    <table id="imagens">
+                        <tr>
+                            <th>Imagem</th>
+                            <th>Action</th>
+                        </tr>
+                    </table>
+                    <button type="button" onclick="addImageRow()">Add Image</button>
+                </div>
                 
                 <button type="submit">Submit</button>
             </form>
@@ -77,7 +99,7 @@
     </div> 
 </body>
 <script>
-    document.getElementById('tourForm').addEventListener('submit', function(event) {
+    document.getElementById('tourForm').addEventListener('submit', async function(event) {
         event.preventDefault();
     
         // Collecting form values
@@ -87,7 +109,7 @@
         const descricao = form.descricao.value;
         const localizacao = form.localizacao.value;
         const resumo = form.resumo.value;
-        const urlVideo = form.urlVideo.value;
+        const urlVideo = Array.from(form.querySelectorAll("input[name='urlVideo[]']")).map(input => input.value);
         const numeroDiarias = parseInt(form.numeroDiarias.value, 10);
         const hospedagemInclusa = form.hospedagemInclusa.value === "true";
         const roteiro = form.roteiro.value;
@@ -106,6 +128,10 @@
         for (let i = 0; i < faixaInputs.length; i++) {
             faixaPreco.push([faixaInputs[i].value, precoInputs[i].value]);
         }
+
+        const tipo = form.tipo.value;
+        const imagens = await convertImagesToBase64();
+        
     
         // Creating the JSON object
         const data = {
@@ -122,7 +148,9 @@
             hospedagemInclusa,
             roteiro,
             dataDisponiveis: datasDisponiveis,
-            limiteVagas
+            limiteVagas,
+            tipo,
+            imagens
         };
     
         // Posting the JSON data to the specified endpoint
@@ -143,6 +171,7 @@
             alert("There was an error submitting the form.");
         });
     });
+
     function addInput(containerId, name) {
         const container = document.getElementById(containerId);
         const inputGroup = document.createElement('div');
@@ -206,5 +235,46 @@
         inputGroup.appendChild(removeBtn);
         container.appendChild(inputGroup);
     }
+
+    function addImageRow() {
+        const container = document.getElementById('imagens');
+        const inputGroup = document.createElement('div');
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.name = 'imagens[]';
+        input.accept = 'image/*';
+        input.required = true;
+        const removeBtn = document.createElement('button');
+        removeBtn.type = 'button';
+        removeBtn.innerText = 'Remove';
+        removeBtn.onclick = () => container.removeChild(inputGroup);
+        inputGroup.appendChild(input);
+        inputGroup.appendChild(removeBtn);
+        container.appendChild(inputGroup);
+    }
+    
+    async function convertImagesToBase64() {
+        const imageInputs = document.getElementsByName('imagens[]');
+        const promises = [];
+        
+        for (const input of imageInputs) {
+            if (input.files && input.files[0]) {
+                const file = input.files[0];
+                promises.push(new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onloadend = () => {
+                        const base64String = reader.result.split(',')[1]; // Remove o prefixo data:*/*;base64,
+                        resolve(base64String);
+                    };
+                    reader.onerror = reject;
+                    reader.readAsDataURL(file);
+                }));
+            }
+        }
+        
+        return Promise.all(promises);
+    }
+    
+    
 </script>
 </html>
