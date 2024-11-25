@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="no-js" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/logo.png">
+    <!-- Author Meta -->
+    <meta name="author" content="colorlib">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>RVC-Pacotes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/linearicons.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
+    <link rel="stylesheet" href="/css/owl.carousel.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/pacotes.css">
+</head>
+<body>
+    
+    <!-- NavBar -->
+    
+    <header class="default-header">
+        <nav class="navbar navbar-expand-lg  navbar-light">
+            <div class="container">
+                  <a class="navbar-brand logotipo" th:href="@{/}">
+                      <img src="/img/logo.png" alt="Logotipo">
+                  </a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="text-white lnr lnr-menu"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li><a th:href="@{/}">Menu</a></li>
+                        <li><a th:href="@{/}">Quem Somos</a></li>									
+                        <li><a th:href="@{/contato}">Contato</a></li>
+                        <li><a href="http://blog.rvc.tur.br/">Blog</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                              Roteiros
+                            </a>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" th:href="@{/passeios}">Passeios</a>
+                              <a class="dropdown-item" th:href="@{/pacotes}">Pacotes</a>
+                            </div>
+                        </li>
+                    </ul>
+                  </div>						
+            </div>
+        </nav>
+    </header>
+    <!-- NavBar -->
+
+    
+    <!-- Pacotes -->
+    <section class="pt-5 pb-5 roteiros-destaque-fundo" id="roteiros">
+        
+        <div class="container roteiros-destaque">
+            <h1>Pacotes</h1>
+            <div class="row">
+                <div class="roteiros-subtitulo">
+                    <p>Experiências mais completas para quem busca <br> Ecoturismo Sustentável</p>
+                </div>
+                <div class="col-12 roteiros-carrossel">
+                    <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                        
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+                                            <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
+                                            <div class="card-body">
+                                                <h4 class="card-title">PACOTE X</h4>
+                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                                <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
+                                            </div>
+    
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+                                            <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
+                                            <div class="card-body">
+                                                <h4 class="card-title">PACOTE X</h4>
+                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                                <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+                                            <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
+                                            <div class="card-body">
+                                                <h4 class="card-title">PACOTE X</h4>
+                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                                <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+                                            <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
+                                            <div class="card-body">
+                                                <h4 class="card-title">PACOTE X</h4>
+                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                                <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
+                                            </div>
+    
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+                                            <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
+                                            <div class="card-body">
+                                                <h4 class="card-title">PACOTE X</h4>
+                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                                <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+                                            <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
+                                            <div class="card-body">
+                                                <h4 class="card-title">PACOTE X</h4>
+                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                                <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row">
+    
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+                                            <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
+                                            <div class="card-body">
+                                                <h4 class="card-title">PACOTE X</h4>
+                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                                <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
+                                            </div>
+    
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+                                            <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
+                                            <div class="card-body">
+                                                <h4 class="card-title">PACOTE X</h4>
+                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                                <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+                                            <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
+                                            <div class="card-body">
+                                                <h4 class="card-title">PACOTE X</h4>
+                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                                <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 text-right botao">
+                    <a class="btn btn-primary btn-custom mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                        <i class="fa fa-arrow-left"></i>
+                    </a>
+                    <a class="btn btn-primary btn-custom mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                        <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Pacotes -->
+
+
+    <!-- Explicativa sobre Pacotes -->
+    <section class="section-gap info-area explicativa-roteiros">
+        
+        <div class="container">				
+            <div class="single-info row mt-40">
+                <div class="col-lg-6 col-md-12 mt-120 text-center no-padding info-left">
+                    <div class="info-thumb">
+                        <img src="/img/slide1.jpg" class="img-fluid" alt="Leidson">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 no-padding info-rigth">
+                    <div class="info-content">
+                        <div class="rvc-roteiros">
+                            <h2 class="pb-30 roteiros-h2">Porque escolher um <strong>Pacote</strong> ?</h2>
+                        </div>
+                        <br>
+                        <p class="sobre-paragrafo roteiros-p">
+                            Um pacote inclui transporte, hospedagem, refeições e lanche para trilhas. Escolher um pacote garante uma experiência mais confortável e conveniente, permitindo que você aproveite ao máximo sua viagem sem se preocupar com os detalhes logísticos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Explicativa sobre Pacotes -->
+
+
+    <!-- Feedback -->
+    <div class="feedbacks-titulo">
+        <h1>Feedbacks</h1>
+        <div class="feedback-subtitulo">
+            <p>O que nossos clientes estão dizendo sobre nós</p>
+        </div>
+    </div>
+    <section class="feedbacks">
+        
+        <div id="carouselFeedbacks" class="carousel slide text-center carousel-dark carrossel-feedbacks" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-lg-8 col-md-10 col-sm-12">
+                                <h5 class="mb-3">Maria Kate</h5>
+                                <p>
+                                    <i class="fas fa-quote-left pe-2"></i>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus et deleniti
+                                    nesciunt sint eligendi reprehenderit reiciendis, quibusdam illo, beatae quia
+                                    fugit consequatur laudantium velit magnam error. Consectetur distinctio fugit
+                                    doloremque.
+                                </p>
+                                <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                                    <li><i class="fas fa-star fa-sm"></i></li>
+                                    <li><i class="fas fa-star fa-sm"></i></li>
+                                    <li><i class="fas fa-star fa-sm"></i></li>
+                                    <li><i class="fas fa-star fa-sm"></i></li>
+                                    <li><i class="fas fa-star fa-sm"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-lg-8 col-md-10 col-sm-12">
+                                <h5 class="mb-3">John Doe</h5>
+                                <p>
+                                    <i class="fas fa-quote-left pe-2"></i>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus et deleniti
+                                    nesciunt sint eligendi reprehenderit reiciendis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum beatae necessitatibus fugit tenetur praesentium maiores odit illo veniam
+                                </p>
+                                <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                                    <li><i class="fas fa-star fa-sm"></i></li>
+                                    <li><i class="fas fa-star fa-sm"></i></li>
+                                    <li><i class="fas fa-star fa-sm"></i></li>
+                                    <li><i class="fas fa-star fa-sm"></i></li>
+                                    <li><i class="far fa-star fa-sm"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-lg-8 col-md-10 col-sm-12">
+                                <h5 class="mb-3">Anna Deynah</h5>
+                                <p>
+                                    <i class="fas fa-quote-left pe-2"></i>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus et deleniti
+                                    nesciunt sint eligendi reprehenderit reiciendis, quibusdam illo, beatae quia
+                                    fugit consequatur laudantium velit magnam error. Consectetur distinctio fugit
+                                    doloremque.
+                                </p>
+                                <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                                    <li><i class="fas fa-star fa-sm"></i></li>
+                                    <li><i class="fas fa-star fa-sm"></i></li>
+                                    <li><i class="fas fa-star fa-sm"></i></li>
+                                    <li><i class="fas fa-star fa-sm"></i></li>
+                                    <li><i class="far fa-star fa-sm"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselFeedbacks" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselFeedbacks" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+    <!-- Feedback -->
+
+
+    <!-- Rodapé -->
+    <footer class="footer-rodape" id="contato">
+        
+        <div class="container-rodape">
+            <div class="contato-info-rodape">
+                <div class="footer-secao">
+                    <h3>E-mail</h3>
+                    <p>info@roteirosvelhochico.com.br</p>
+                </div>
+                <div class="footer-secao">
+                    <h3>Telefone</h3>
+                    <p>(38) 99892-8953</p>
+                </div>
+                <div class="footer-secao blog-rodape">
+                    <h3>Blog</h3>
+                    <div>
+                        <a href="http://blog.rvc.tur.br/">
+                            <img src="/img/logo.png" alt="Blog">
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-secao">
+                    <h3>Redes Sociais</h3>
+                    <div class="redes-sociais-rodape">
+                        <a href="https://www.facebook.com/roteirosvelhochico.rvc/">
+                            <img src="/img/face.webp" alt="Facebook">
+                        </a>
+                        <a href="https://www.instagram.com/roteirosvelhochico.rvc/">
+                            <img src="/img/insta.webp" alt="Instagram">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Direitos autorais -->
+        <div class="direitos-autorais">
+            <p>&copy; <a class="direitos-autorais" th:href="@{/}">Roteiros do Velho Chico</a> Todos os Direitos Reservados.</p>
+        </div>
+    </footer>
+    <!-- Rodapé -->
+
+
+    <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="/js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="/js/vendor/bootstrap.min.js"></script>
+    <script src="/js/jquery.ajaxchimp.min.js"></script>
+    <script src="/js/jquery.magnific-popup.min.js"></script>	
+    <script src="/js/owl.carousel.min.js"></script>			
+    <script src="/js/jquery.sticky.js"></script>
+    <script src="/js/slick.js"></script>
+    <script src="/js/jquery.counterup.min.js"></script>
+    <script src="/js/waypoints.min.js"></script>		
+    <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,15 +1,440 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Home Page</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
-</head>
-<body>
-    <h1>Welcome to Our Product Portal</h1>
-    <nav>
-        <a th:href="@{/catalogo}">Catalog</a> |
-        <a th:href="@{/adm}">Admin</a>
-    </nav>
-    <p>Explore our wide range of products and services.</p>
-</body>
+<html lang="pt-br" class="no-js" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <!-- Mobile Specific Meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Favicon-->
+        <link rel="shortcut icon" href="/img/logo.png">
+        <!-- Author Meta -->
+        <meta name="author" content="colorlib">
+        <!-- Meta Description -->
+        <meta name="description" content="">
+        <!-- Meta Keyword -->
+        <meta name="keywords" content="">
+        <!-- meta character set -->
+        <meta charset="UTF-8">
+        <!-- Site Title -->
+        <title>RVC</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+        <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css'>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <!-- CSS -->
+        <link rel="stylesheet" href="/css/linearicons.css">
+        <link rel="stylesheet" href="/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/bootstrap.css">
+        <link rel="stylesheet" href="/css/magnific-popup.css">
+        <link rel="stylesheet" href="/css/animate.min.css">
+        <link rel="stylesheet" href="/css/owl.carousel.css">
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/home.css">
+    </head>
+    <body>
+        <!-- Banner -->
+        <section class="banner-area" id="menu">
+            <!-- NavBar -->
+            <header class="default-header">
+                <nav class="navbar navbar-expand-lg  navbar-light">
+                    <div class="container">
+                          <a class="navbar-brand logotipo" href="index.html">
+                              <img src="/img/logo.png" alt="Logotipo">
+                          </a>
+                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="text-white lnr lnr-menu"></span>
+                          </button>
+
+                          <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li><a th:href="@{/}">Menu</a></li>
+                                <li><a th:href="@{/}">Quem Somos</a></li>									
+                                <li><a th:href="@{/contato}">Contato</a></li>
+                                <li><a href="http://blog.rvc.tur.br/">Blog</a></li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" href="#roteiros" id="navbardrop" data-toggle="dropdown">
+                                      Roteiros
+                                    </a>
+                                    <div class="dropdown-menu">
+                                      <a class="dropdown-item" th:href="@{/passeios}">Passeios</a>
+                                      <a class="dropdown-item" th:href="@{/pacotes}">Pacotes</a>
+                                    </div>
+                                </li>
+                            </ul>
+                          </div>						
+                    </div>
+                </nav>
+            </header>
+            <!-- NavBar -->				
+        </section>
+        <!-- Banner -->
+        <section class="default-banner active-blog-slider">
+                <div class="item-slider relative" style="background: url(img/slide1.jpg);background-size: cover;">
+                    <div class="overlay" style="background: rgba(0,0,0,.3)"></div>
+                    <div class="container">
+                        <div class="row fullscreen justify-content-center align-items-center">
+                            <div class="col-md-10 col-12">
+                                <div class="banner-content text-center">
+                                    <h1 class="text-uppercase text-white-2">Roteiros do Velho Chico</h1>
+                                    <p class="text-white-2">"Descubra o verdadeiro encanto do norte de Minas: experiências únicas de ecoturismo, <br> em harmonia com a natureza e as comunidades locais."</p>
+                                    <a href="#quem-somos" class="text-uppercase header-btn">Saiba Mais</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="item-slider relative" style="background: url(img/slide2.jpg);background-size: cover;">
+                    <div class="overlay" style="background: rgba(0,0,0,.3)"></div>
+                    <div class="container">
+                        <div class="row fullscreen justify-content-center align-items-center">
+                            <div class="col-md-10 col-12">
+                                <div class="banner-content text-center">
+                                    <h1 class="text-uppercase text-white-2">Roteiros do Velho Chico</h1>
+                                    <p class="text-white-2">"Descubra o verdadeiro encanto do norte de Minas: experiências únicas de ecoturismo, <br> em harmonia com a natureza e as comunidades locais."</p>
+                                    <a href="#quem-somos" class="text-uppercase header-btn">Saiba Mais</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-slider relative" style="background: url(img/slide3.jpg);background-size: cover;">
+                    <div class="overlay" style="background: rgba(0,0,0,.3)"></div>
+                    <div class="container">
+                        <div class="row fullscreen justify-content-center align-items-center">
+                            <div class="col-md-10 col-12">
+                                <div class="banner-content text-center">
+                                    <h1 class="text-uppercase text-white-2">Roteiros do Velho Chico</h1>
+                                    <p class="text-white-2">"Descubra o verdadeiro encanto do norte de Minas: experiências únicas de ecoturismo, <br> em harmonia com a natureza e as comunidades locais."</p>
+                                    <a href="#quem-somos" class="text-uppercase header-btn">Saiba Mais</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <!-- Quem Somos -->
+        <section class="section-gap info-area" id="quem-somos">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="menu-content pb-40 col-lg-8">
+                        <div class="title text-center titulo-quem-somos">
+                            <h1>A Roteiros do Velho Chico (RVC)</h1>
+                            <p class="sobre-subtitulo">Agência pioneira em ecoturismo no Norte de Minas Gerais</p>
+                        </div>
+                    </div>
+                </div>					
+                <div class="single-info row mt-40">
+                    <div class="col-lg-6 col-md-12 mt-120 text-center no-padding info-left">
+                        <div class="info-thumb">
+                            <img src="/img/quem-somos.jpg" class="img-fluid" alt="Leidson">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 no-padding info-rigth">
+                        <div class="info-content">
+                            <div class="rvc-quem-somos">
+                                <h2 class="pb-30 quem-somos-h2">Quem é a <strong>RVC</strong> ?</h2>
+                            </div>
+                            <br>
+                            <p class="sobre-paragrafo quem-somos-p">
+                                A <strong>Roteiros do Velho Chico (RVC)</strong> é a primeira agência de turismo receptivo localizada em Itacarambi, Minas Gerais.  A nossa atuação começou em 2012, oferecendo roteiros de ecoturismo pelo Parque Nacional Cavernas do Peruaçu e junto às comunidades locais. Sempre quisemos desenvolver o turismo na região de maneira sustentável, valorizando os aspectos socioambientais e culturais.
+                            </p>
+                            <p class="sobre-paragrafo">
+                                Conheça nossas iniciativas, viaje com a gente e ajude a desenvolver o turismo de maneira mais responsável, sustentável, transparente e segura!
+                            </p>
+                            <p class="sobre-paragrafo-2">
+                                Saiba mais sobre a <strong>RVC</strong> em nosso Blog: <a href="http://blog.rvc.tur.br/">SAIBA MAIS</a>  
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Quem Somos -->
+
+
+        <!-- Diferenciais -->
+        <div class="container diferenciais diferenciais-titulo">
+            <h1>Nossos Diferenciais</h1>
+            <div class="diferenciais-subtitulo">
+                <p>Descubra o que torna a RVC tão especial!</p>
+            </div>
+        </div>
+        <section class="rvc-differentials-section">
+            
+            <div class="rvc-container">
+              <div class="rvc-differential">
+                <div class="rvc-icon eco-tourism-icon">
+                  <img src="/img/ecoturismo.png" alt="Ecoturismo Exclusivo">
+                </div>
+                <h3>Ecoturismo Exclusivo</h3>
+                <p>Roteiros imersivos com contato direto com a natureza.</p>
+              </div>
+              <div class="rvc-differential">
+                <div class="rvc-icon custom-itineraries-icon">
+                  <img src="/img/planejamento.png" alt="Roteiros Sob Medida">
+                </div>
+                <h3>Roteiros Sob Medida</h3>
+                <p>Personalização completa para atender às suas expectativas.</p>
+              </div>
+              <div class="rvc-differential">
+                <div class="rvc-icon community-partnerships-icon">
+                  <img src="/img/parceria.png" alt="Parcerias Locais">
+                </div>
+                <h3>Parcerias Locais</h3>
+                <p>Colaboração com comunidades para experiências autênticas.</p>
+              </div>
+              <div class="rvc-differential">
+                <div class="rvc-icon premium-support-icon">
+                  <img src="/img/suporte.png" alt="Suporte Dedicado">
+                </div>
+                <h3>Suporte Dedicado</h3>
+                <p>Atendimento especializado antes, durante e após sua viagem.</p>
+              </div>
+              <div class="rvc-differential">
+                <div class="rvc-icon cultural-experiences-icon">
+                  <img src="/img/cultura.png" alt="Experiências Culturais">
+                </div>
+                <h3>Experiências Culturais</h3>
+                <p>Vivencie tradições e histórias locais únicas.</p>
+              </div>
+              <div class="rvc-differential">
+                <div class="rvc-icon sustainability-focus-icon">
+                  <img src="/img/sustentabilidade.png" alt="Foco em Sustentabilidade">
+                </div>
+                <h3>Foco em Sustentabilidade</h3>
+                <p>Práticas conscientes para proteger o meio ambiente.</p>
+              </div>
+            </div>
+        </section>
+        <!-- Diferenciais -->
+
+
+        <!-- Frase -->
+        <section>
+            
+            <div class="parallax">
+                <div class="text frase">
+                    Transformando o Ecoturismo <br> <span class="frase-span">em Minas Gerais</span>
+                </div>
+            </div>
+            <div style="height: 80px;">
+            </div>
+        </section>
+        <!-- Frase -->
+
+
+        <!-- Pacotes e Passeios -->
+        <section class="pt-5 pb-5 roteiros-destaque-fundo" id="roteiros">
+            
+            <div class="container roteiros-destaque">
+                <h1>Roteiros em Destaque</h1>
+                <div class="row">
+                    <div class="roteiros-subtitulo">
+                        <p>Descubra os Passeios e Pacotes mais escolhidos!</p>
+                    </div>
+                    
+                    <div class="col-12 roteiros-carrossel">
+                        <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                            
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card">
+                                                <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
+                                                <div class="card-body">
+                                                    <h4 class="card-title">PACOTE X</h4>
+                                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                                    <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
+                                                </div>
+        
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card">
+                                                <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
+                                                <div class="card-body">
+                                                    <h4 class="card-title">PACOTE X</h4>
+                                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                                    <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card">
+                                                <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
+                                                <div class="card-body">
+                                                    <h4 class="card-title">PACOTE X</h4>
+                                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                                    <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
+                                                </div>
+                                            </div>
+                                        </div>
+        
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card">
+                                                <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
+                                                <div class="card-body">
+                                                    <h4 class="card-title">PASSEIO X</h4>
+                                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                                    <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
+                                                </div>
+        
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card">
+                                                <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
+                                                <div class="card-body">
+                                                    <h4 class="card-title">PASSEIO X</h4>
+                                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                                    <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card">
+                                                <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
+                                                <div class="card-body">
+                                                    <h4 class="card-title">PASSEIO X</h4>
+                                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                                    <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
+                                                </div>
+                                            </div>
+                                        </div>
+        
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row">
+        
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card">
+                                                <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
+                                                <div class="card-body">
+                                                    <h4 class="card-title">PACOTE X</h4>
+                                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                                    <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
+                                                </div>
+        
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card">
+                                                <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
+                                                <div class="card-body">
+                                                    <h4 class="card-title">PACOTE X</h4>
+                                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                                    <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card">
+                                                <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
+                                                <div class="card-body">
+                                                    <h4 class="card-title">PACOTE X</h4>
+                                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                                    <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 text-right botao">
+                        <a class="btn btn-primary btn-custom mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                            <i class="fa fa-arrow-left"></i>
+                        </a>
+                        <a class="btn btn-primary btn-custom mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                            <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Pacotes e Passeios -->
+
+
+        <!-- Outros Roteiros -->
+        <section class="pt-5 pb-5 outros-roteiros">
+            
+            <div>
+                <div>
+                    <div class="outros-roteiros-texto">
+                        <h2>Encontre outros <strong>Roteiros</strong></h2>
+                        <p>Explore uma variedade de pacotes e passeios personalizados <br> para uma experiência única.</p>
+                        <a href="/passeios.html" class="btn btn-lg btn-custom">PASSEIOS</a>
+                        <a href="/pacotes.html" class="btn btn-lg btn-custom">PACOTES</a>
+                    </div>
+                </div>
+            </div>
+        </section>	
+        <!-- Outros Roteiros -->
+
+
+        <!-- Rodapé -->
+        <footer class="footer-rodape" id="contato">
+            
+            <div class="container-rodape">
+                <div class="contato-info-rodape">
+                    <div class="footer-secao">
+                        <h3>E-mail</h3>
+                        <p>info@roteirosvelhochico.com.br</p>
+                    </div>
+                    <div class="footer-secao">
+                        <h3>Telefone</h3>
+                        <p>(38) 99892-8953</p>
+                    </div>
+                    <div class="footer-secao blog-rodape">
+                        <h3>Blog</h3>
+                        <div>
+                            <a href="http://blog.rvc.tur.br/">
+                                <img src="/img/logo.png" alt="Blog">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-secao">
+                        <h3>Redes Sociais</h3>
+                        <div class="redes-sociais-rodape">
+                            <a href="https://www.facebook.com/roteirosvelhochico.rvc/">
+                                <img src="/img/face.webp" alt="Facebook">
+                            </a>
+                            <a href="https://www.instagram.com/roteirosvelhochico.rvc/">
+                                <img src="/img/insta.webp" alt="Instagram">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Direitos autorais -->
+            <div class="direitos-autorais">
+                <p>&copy; <a class="direitos-autorais" th:href="@{/}">Roteiros do Velho Chico</a> Todos os Direitos Reservados.</p>
+            </div>
+        </footer>
+        <!-- Rodapé -->
+         
+    </body>
+    <script src="/js/home.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="/js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="/js/vendor/bootstrap.min.js"></script>
+    <script src="/js/jquery.ajaxchimp.min.js"></script>
+    <script src="/js/jquery.magnific-popup.min.js"></script>	
+    <script src="/js/owl.carousel.min.js"></script>			
+    <script src="/js/jquery.sticky.js"></script>
+    <script src="/js/slick.js"></script>
+    <script src="/js/jquery.counterup.min.js"></script>
+    <script src="/js/waypoints.min.js"></script>		
+    <script src="/js/main.js"></script>	
 </html>

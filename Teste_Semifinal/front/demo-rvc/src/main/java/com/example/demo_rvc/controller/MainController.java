@@ -48,4 +48,28 @@ public class MainController {
         model.addAttribute("productId", id);
         return "avaliar";
     }
+
+    @GetMapping("/passeios")
+    public String passeios(Model model) {
+        String url = "http://localhost:8080/passeios";
+        List<?> data = restTemplate.getForObject(url, List.class);
+        model.addAttribute("data", data);
+        return "passeios"; // Corresponds to passeios
+    }
+
+    @GetMapping("/pacotes")
+    public String pacotes(Model model) {
+        String url = "http://localhost:8080/pacotes";
+        List<?> data = restTemplate.getForObject(url, List.class);
+        model.addAttribute("data", data);
+        return "pacotes"; // Corresponds to pacotes
+    }
+
+    @GetMapping("/contato")
+    public String contato(Model model) {
+        String url = "http://localhost:8080/";
+        List<?> data = restTemplate.getForObject(url, List.class);
+        model.addAttribute("data", data);
+        return "contato"; // Corresponds to contato
+    }
 }

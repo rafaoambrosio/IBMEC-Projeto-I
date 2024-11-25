@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="no-js">
+<html lang="pt-br" class="no-js" xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="../static/img/logo.png">
+    <link rel="shortcut icon" href="img/logo.png">
     <!-- Author Meta -->
     <meta name="author" content="colorlib">
     <!-- Meta Description -->
@@ -21,38 +21,21 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- CSS -->
-    <link rel="stylesheet" href="../static/css/main.css">
-    <link rel="stylesheet" href="../static/css/linearicons.css">
-    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../static/css/bootstrap.css">
-    <link rel="stylesheet" href="../static/css/magnific-popup.css">
-    <link rel="stylesheet" href="../static/css/animate.min.css">
-    <link rel="stylesheet" href="../static/css/owl.carousel.css">
-    
+    <link rel="stylesheet" href="/css/linearicons.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
+    <link rel="stylesheet" href="/css/owl.carousel.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/produto.css">
 </head>
 <body>
-    <style>
-        body {
-            font-family: 'Poppins', serif;
-            background-color: #eeece1;
-        }
-    </style>
-    <!-- NavBar -->
-    <style>
-        .logotipo img {
-            width: 70px;
-        }
-        .navbar {
-            background-color: #1b3a24;
-        }
-        header {
-            border-bottom: 7px solid #daa520;
-        }
-    </style>
+    
     <header class="default-header">
         <nav class="navbar navbar-expand-lg  navbar-light">
             <div class="container">
-                  <a class="navbar-brand logotipo" href="index.html">
+                  <a class="navbar-brand logotipo" th:href="@{/}">
                       <img src="/img/logo.png" alt="Logotipo">
                   </a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,17 +44,17 @@
 
                   <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                     <ul class="navbar-nav">
-                        <li><a href="/index.html">Menu</a></li>
-                        <li><a href="/index.html#quem-somos">Quem Somos</a></li>									
-                        <li><a href="#contato">Contato</a></li>
+                        <li><a th:href="@{/}">Menu</a></li>
+                        <li><a th:href="@{/}">Quem Somos</a></li>									
+                        <li><a th:href="@{/contato}">Contato</a></li>
                         <li><a href="http://blog.rvc.tur.br/">Blog</a></li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                               Roteiros
                             </a>
                             <div class="dropdown-menu">
-                              <a class="dropdown-item" href="/passeios.html">Passeios</a>
-                              <a class="dropdown-item" href="/pacotes.html">Pacotes</a>
+                              <a class="dropdown-item" th:href="@{/passeios}">Passeios</a>
+                              <a class="dropdown-item" th:href="@{/pacotes}">Pacotes</a>
                             </div>
                         </li>
                     </ul>
@@ -82,280 +65,35 @@
     <!-- NavBar -->
 
     <!-- Título -->
-    <style>
-    .titulo {
-        text-align: center;
-        margin-top: 65px;
-        margin-bottom: 30px;
-    }
-
-    .titulo h1{
-        font-size: 36px;
-    }
-
-    .titulo p {
-        color: #1b3a24;
-        font-size: 20px;
-    }
-    </style>
+    
     <div class="titulo">
-        <h1 id="tituloProduto">Pedrona Top</h1>
-        <p id="tipoProduto">Passeio</p>
+        <h1>Pedrona Top</h1>
+        <p>Passeio</p>
     </div>
     <!-- Título -->
 
 
     <!-- Fotos do Passeio/Pacote -->
     <section class="fotos-roteiros">
-        <style>    
-            .container-flex {
-                border-bottom: 0px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                flex-wrap: wrap;
-                margin: 0 auto;
-                padding: 0;
-                max-width: 1200px;
-            }
         
-            .carousel {
-                flex: 0 0 80%;
-            }
         
-            .carousel-inner img {
-                border-top-left-radius: 15px;
-                width: 100%;
-                height: 400px;
-                object-fit: cover;
-            }
-        
-            .carousel-control-prev, .carousel-control-next {
-                width: 5%;
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-            }
-        
-            .carousel-control-prev {
-                left: 10px;
-            }
-        
-            .carousel-control-next {
-                right: 10px;
-            }
-        
-            .carousel-control-prev-icon, .carousel-control-next-icon {
-                background-color: transparent;
-                width: 30px;
-                height: 30px;
-            }
-        
-            .info-div {
-                flex: 0 0 20%;
-                border-top-right-radius: 15px;
-                background-color: #daa520;
-                border: 7px solid #f2b705;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                padding: 20px;
-                text-align: center;
-                box-sizing: border-box;
-                height: 400px;
-            }
-        
-            .info-div h3 {
-                margin: 0 0 10px;
-                font-size: 24px;
-                color: #eeece1;
-                font-weight: normal;
-            }
-        
-            .info-div p {
-                margin: 0;
-                color: #eeece1;
-                font-size: 16px;
-            }
-        
-            @media (max-width: 768px) {
-                .carousel {
-                    flex: 0 0 100%;
-                }
-        
-                .info-div {
-                    border-top-right-radius: 0px;
-                    flex: 0 0 100%;
-                    margin-top: 0;
-                    padding-top: 20px;
-                    height: auto;
-                }
-        
-                .carousel-caption p {
-                    font-size: 12px;
-                }
-            }
-        </style>
-        
-
-
-
-
-
-
-
-
-
-        <script>
-            // Extract the product ID from the URL path
-            const productId = window.location.pathname.split("/").pop();
-    
-            // Fetch product data from the API
-            fetch(`http://localhost:8080/${productId}`)
-                .then(response => response.json())
-                .then(product => {
-                    // Set product details
-                    document.getElementById("tituloProduto").textContent = product.titulo;
-                    document.getElementById("tipoProduto").textContent = product.tipo;
-    
-                    // Clear existing carousel indicators and items
-                    const indicatorsContainer = document.getElementById("productImageCarouselIndicators");
-                    const itemsContainer = document.getElementById("productImageCarouselItems");
-                    indicatorsContainer.innerHTML = "";
-                    itemsContainer.innerHTML = "";
-
-                    let slideIndex = 0;
-
-                    // Add videos to carousel
-                    product.urlVideo.forEach((urlv, index) => {
-                        // Create indicator
-                        const indicator = document.createElement("li");
-                        indicator.setAttribute("data-target", "#carouselExampleIndicators");
-                        indicator.setAttribute("data-slide-to", slideIndex);
-                        if (slideIndex === 0) indicator.classList.add("active");
-                        indicatorsContainer.appendChild(indicator);
-
-                        // Create carousel item
-                        const carouselItem = document.createElement("div");
-                        carouselItem.className = `carousel-item${slideIndex === 0 ? ' active' : ''}`;
-                        
-                        const iframe = document.createElement("iframe");
-                        iframe.src = urlv.replace("watch?v=", "embed/");
-                        iframe.className = "d-block w-100";
-                        iframe.frameborder = "0";
-                        iframe.allowfullscreen = true;
-                        iframe.alt = `Slide ${slideIndex + 1}`;
-                        
-                        carouselItem.appendChild(iframe);
-                        itemsContainer.appendChild(carouselItem);
-                        
-                        slideIndex++;
-                    });
-
-                    // Add images to carousel
-                    product.imagens.forEach(imagem => {
-                        // Create indicator
-                        const indicator = document.createElement("li");
-                        indicator.setAttribute("data-target", "#carouselExampleIndicators");
-                        indicator.setAttribute("data-slide-to", slideIndex);
-                        if (slideIndex === 0) indicator.classList.add("active");
-                        indicatorsContainer.appendChild(indicator);
-
-                        // Create carousel item
-                        const carouselItem = document.createElement("div");
-                        carouselItem.className = `carousel-item${slideIndex === 0 ? ' active' : ''}`;
-                        
-                        const img = document.createElement("img");
-                        img.src = `data:image/jpeg;base64,${imagem.bytes}`;
-                        img.className = "d-block w-100";
-                        img.alt = `Slide ${slideIndex + 1}`;
-                        
-                        carouselItem.appendChild(img);
-                        itemsContainer.appendChild(carouselItem);
-                        
-                        slideIndex++;
-                    });
-
-                    document.getElementById("productAccordeonLocalizacao").textContent = product.localizacao;
-                    document.getElementById("productAccordeonDescricao").textContent = product.descricao;
-
-                    const ulInclusos = document.getElementById("productAccordeonInclusos")
-                    product.itensInclusos.forEach(item => {
-                        const li = document.createElement("li");
-                        const p = document.createElement("p");
-                        const strong = document.createElement("strong");
-                        strong.textContent = item;
-                        p.appendChild(strong);
-                        li.appendChild(p);
-                        ulInclusos.appendChild(li);
-                    });
-                    
-                    const ulDicas = document.getElementById("productAccordeonDicas")
-                    product.dicas.forEach(dica => {
-                        const li = document.createElement("li");
-                        const p = document.createElement("p");
-                        const strong = document.createElement("strong");
-                        strong.textContent = dica;
-                        p.appendChild(strong);
-                        li.appendChild(p);
-                        ulDicas.appendChild(li);
-                    });
-
-                    const ulObservacoes = document.getElementById("productAccordeonObservacoes")
-                    product.observacoes.forEach(obs => {
-                        const li = document.createElement("li");
-                        const p = document.createElement("p");
-                        const strong = document.createElement("strong");
-                        strong.textContent = obs;
-                        p.appendChild(strong);
-                        li.appendChild(p);
-                        ulObservacoes.appendChild(li);
-                    });
-
-                    document.getElementById("productAccordeonRoteiro").textContent = product.roteiro;
-
-                    document.getElementById("productNumeroDiarias").textContent = product.numeroDiarias;
-                    document.getElementById("productHospedagem").textContent = product.hospedagemInclusa ? "Sim" : "Não";
-                    document.getElementById("productLimiteVagas").textContent = product.limiteVagas;
-
-                    const ulDatas = document.getElementById("productDatasDisponiveis")
-                    product.dataDisponiveis.forEach(dateString => {
-                        const li = document.createElement("li");
-                        const date = new Date(dateString);
-                        li.textContent = date.toLocaleDateString("en-GB"); // Format as dd/MM/yyyy
-                        ulDatas.appendChild(li);
-                    });
-
-                    const precoHeads = document.getElementById("productFaixaPrecoHeads");
-                    const precoCols = document.getElementById("productFaixaPrecoCols");
-
-                    product.faixaPreco.forEach(range => {
-                        const th = document.createElement("th");
-                        th.innerHTML = `<p>${range.faixa}</p>`;
-                        precoHeads.appendChild(th);
-                        const td = document.createElement("td");
-                        td.innerHTML = `<p>R$ ${range.preco}</p>`;
-                        precoCols.appendChild(td);
-                    });
-                })
-                .catch(error => console.error("Error fetching product data:", error));
-        </script>
-
-
-
-
-
-
-
-
-
-
         <div class="container-flex">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators" id="productImageCarouselIndicators">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                 </ol>
-                <div class="carousel-inner" id="productImageCarouselItems">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/img/pacotes.jpg" class="d-block w-100" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/img/pacotes.jpg" class="d-block w-100" alt="Second slide"> 
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/img/pacotes.jpg" class="d-block w-100" alt="Third slide">                          
+                    </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -368,7 +106,7 @@
             </div>
             <div class="info-div">
                 <h3>Por que escolher <strong>Pedrona Top</strong>?</h3>
-                <p>Este é o parágrafo explicativo da seção.</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero error voluptas iusto culpa doloremque maxime tempore, natus reiciendis quam accusamus voluptatum?</p>
             </div>
         </div>
     </section>    
@@ -376,324 +114,142 @@
 
 
     <!-- Descrição Passeio/Pacote -->
-    <section>
-        <style>
-            .card-body {
-                background-color: #eeece1;
-                text-align: center;
-                overflow: hidden; 
-            }
-
-            .card-body p {
-                color: #1b3a24;
-                text-align: center;
-                margin: 0 auto;
-                padding: 10px;
-            }
-
-            .card {
-                background-color: #1b3a24;
-                border: 25px solid #1b3a24;
-                overflow: hidden; 
-                border-radius: 0;
-            }
-
-            .card-header {
-                border-radius: 25px !important;
-                background-color: #1b3a24; 
-                height: 70px; 
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 100%; 
-                max-width: 390px; 
-                margin: 0 auto;
-            }
-
-            @media (max-width: 768px) {
-                .card-header {
-                    max-width: 90%;
-                }
-            }
-
-            .card-header .btn {
-                color: #1b3a24;
-                text-decoration: none;
-                transition: color 0.3s ease;
-                width: 100%;
-            }
-
-            .card-header .btn-link {
-                color: #eeece1;
-                background-color: #1b3a24;
-                width: 100%;
-                text-align: center;
-                padding: 10px 20px;
-                display: block;
-            }
-
-            .card-header .btn-link.active {
-                border-radius: 25px;
-                background-color: #daa520;
-                border: 9px solid #f2b705;
-                color: #eeece1;
-                box-shadow: none;
-                text-decoration: none;
-                width: 420px;
-                height: 70px;
-            }
-
-            .container-flex-acordeao {
-                margin: 0 auto;
-                max-width: 1200px;
-                padding: 0;
-            }
-
-            .toggle-icon {
-                transition: transform 0.3s ease;
-            }
-
-            button.collapsed .toggle-icon {
-                transform: rotate(0deg);
-            }
-
-            button:not(.collapsed) .toggle-icon {
-                transform: rotate(180deg);
-            }
-
-            @media (max-width: 1200px) {
-                .card-header .btn-link {
-                    width: 100%; 
-                }
-            }
-        </style>
-        <div class="container-flex-acordeao">
-            <div class="accordion" id="accordionExample">
-                <div class="card">
-                    <div class="card-header" id="headingOne">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Localização <i class="fas fa-chevron-down ml-2 toggle-icon"></i>
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
-                        <div class="card-body">
-                            <p><strong id="productAccordeonLocalizacao"></strong></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="headingTwo">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Descrição <i class="fas fa-chevron-down ml-2 toggle-icon"></i>
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
-                        <div class="card-body">
-                            <p><strong id="productAccordeonDescricao"></strong></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="headingThree">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Inclusos <i class="fas fa-chevron-down ml-2 toggle-icon"></i>
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree">
-                        <div class="card-body">
-                            <ul id="productAccordeonInclusos"></ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="headingFour">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                Dicas e Informações Gerais <i class="fas fa-chevron-down ml-2 toggle-icon"></i>
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour">
-                        <div class="card-body">
-                            <ul id="productAccordeonDicas"></ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="headingFive">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                Observações <i class="fas fa-chevron-down ml-2 toggle-icon"></i>
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive">
-                        <div class="card-body">
-                            <ul id="productAccordeonObservacoes"></ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="headingSix">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                Roteiro <i class="fas fa-chevron-down ml-2 toggle-icon"></i>
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseSix" class="collapse" aria-labelledby="headingSix">
-                        <div class="card-body">
-                            <p id="productAccordeonRoteiro"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="headingSeven">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                                Características <i class="fas fa-chevron-down ml-2 toggle-icon"></i>
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven">
-                        <div class="card-body">
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td><p><strong>Diárias: </strong></p></td>
-                                        <td><p id="productNumeroDiarias"></p></td>
-                                    </tr>
-                                    <tr>
-                                        <td><p><strong>Hospedagem: </strong></p></td>
-                                        <td><p id="productHospedagem"></p></td>
-                                    </tr>
-                                    <tr>
-                                        <td><p><strong>Limite de Vagas: </strong></p></td>
-                                        <td><p id="productLimiteVagas"></p></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="headingEight">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                                Disponibilidade ou Datas de Saída <i class="fas fa-chevron-down ml-2 toggle-icon"></i>
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseEight" class="collapse" aria-labelledby="headingEight">
-                        <div class="card-body">
-                            <ul id="productDatasDisponiveis"></ul>
-                        </div>
-                    </div>
-                </div>
+    <section class="rvc-differentials-section">
+        
+        <div class="rvc-container">
+          <div class="rvc-differential">
+            <div class="rvc-icon eco-tourism-icon">
+              <img src="/img/localizacao.png" alt="Ecoturismo Exclusivo">
             </div>
+            <div>
+              <h3>Localização ou Destino</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quidem dolore eveniet aperiam architecto deserunt delectus, quisquam sapiente ab voluptatum dolores sint atque labore dolor amet alias neque fugiat explicabo.</p>
+            </div>
+          </div>
+          <div class="rvc-differential-2">
+            <div class="rvc-icon-2 custom-itineraries-icon">
+              <img src="/img/descricao.png" alt="Roteiros Sob Medida">
+            </div>
+            <div>
+              <h3>Descrição</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere atque, eos placeat sit veritatis maiores repellendus cupiditate quis aliquam minus excepturi perferendis assumenda laudantium quasi deleniti cumque commodi, accusamus voluptatum!</p>
+            </div>
+          </div>
+          <div class="rvc-differential">
+            <div class="rvc-icon community-partnerships-icon">
+              <img src="/img/caracteristicas.png" alt="Parcerias Locais">
+            </div>
+            <div>
+              <h3>Características</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates iure, explicabo minus molestiae libero quibusdam expedita non tenetur mollitia tempore ducimus officia. Reprehenderit deleniti reiciendis labore incidunt repellat iste provident?</p>
+            </div>
+          </div>
+          <div class="rvc-differential-2">
+            <div class="rvc-icon-2 premium-support-icon">
+              <img src="/img/observacao.png" alt="Suporte Dedicado">
+            </div>
+            <div>
+              <h3>Observações</h3>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione numquam suscipit nobis corporis ab odio adipisci, dolores facilis vitae perspiciatis exercitationem ipsum eius incidunt sint rem nam? Minus, libero laborum.</p>
+            </div>
+          </div>
+          <div class="rvc-differential">
+            <div class="rvc-icon cultural-experiences-icon">
+              <img src="/img/inclusos.png" alt="Experiências Culturais">
+            </div>
+            <div>
+              <h3>Inclusos</h3>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti maxime dolor veritatis. Reprehenderit neque natus, eaque ducimus tenetur repellat in laborum aperiam ipsum, numquam necessitatibus possimus fugiat? Iure, culpa voluptatem!</p>
+            </div>
+          </div>
+          <div class="rvc-differential-2">
+            <div class="rvc-icon-2 sustainability-focus-icon">
+              <img src="/img/dicas.png" alt="Foco em Sustentabilidade">
+            </div>
+            <div>
+              <h3>Dicas e Informações</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus id qui minima cupiditate itaque. Perferendis maiores ipsum earum optio corporis repellendus, eaque, id aspernatur accusantium nihil quae quas placeat sed.</p>
+            </div>
+          </div>
         </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const buttons = document.querySelectorAll(".btn-link");
-
-            buttons.forEach((button) => {
-                button.addEventListener("click", function () {
-                    const target = document.querySelector(this.getAttribute("data-target"));
-                    const isCollapsed = target.classList.contains("show");
-
-                    if (isCollapsed) {
-                        this.classList.remove("active");
-                    } else {
-                        this.classList.add("active");
-                    }
-                });
-            });
-        });
-    </script>
-    </section>   
+      </section>    
     <!-- Descrição Passeio/Pacote -->
 
 
     <!-- Tabela de Preços -->
     <section>
-        <style>
-            .container-flex-tabela {
-                margin: 0 auto;
-                max-width: 1230px;
-                padding: 0 15px;
-                margin-top: 35px;
-            }
-            
-            .tabela {
-                margin-bottom: 25px;
-                text-align: center;
-            }
-    
-            .tabela h2 {
-                color: #1b3a24;
-                font-size: 30px;
-                font-weight: 700;
-            }
-    
-            .tabela p {
-                color: #1b3a24;
-                font-size: 17px;
-            }
-            
-            table {
-                border: 7px solid #1b3a24 !important;
-                width: 100%;
-                border-collapse: collapse; 
-                margin-top: 20px;
-            }
-    
-            th, td {
-                padding: 15px;
-                text-align: center;
-                font-size: 16px;
-                color: #1b3a24;
-            }
-    
-            th {
-                background-color: #1b3a24 !important; 
-                border: 7px solid #1b3a24;
-                color: #eeece1 !important;
-                font-weight: 500;
-                border-bottom: 7px solid #1b3a24 !important;
-            }
-    
-            td {
-                background-color: #eeece1 !important;
-                border-bottom: 2px solid #ddd;
-                border: 7px solid #1b3a24;
-            }
-    
-            tr:nth-child(even) td {
-                background-color: #f1f1f1;
-            }
-    
-            tr:hover td {
-                color: #eeece1 !important;
-                background-color: #1b3a24 !important;
-            }
-        </style>
+        
         <div class="container-flex-tabela">
             <div class="table-title tabela">
-                <h2>Tabela de Preços</h2>
+                <h2>Tabelas de Preços</h2>
                 <p>Os preços variam com a temporada, número de pessoas e faixa etária.</p>
+            </div>
+            <div class="table-title temporada">
+                <h2>Alta temporada 2024 - Férias escolares e feriados prolongados</h2>
             </div>
             <table class="table table-striped">
                 <thead>
-                    <tr id="productFaixaPrecoHeads"></tr>
+                    <tr>
+                        <th scope="col">Adultos (a partir de 9 anos)</th>
+                        <th scope="col">Crianças (de 3 a 8 anos)</th>
+                        <th scope="col">Bebês (de 0 a 2 anos)</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr id="productFaixaPrecoCols"></tr>
+                    <tr>
+                        <td>R$800 por pessoa (1 pessoa)</td>
+                        <td>R$560 por pessoa (1 pessoa)</td>
+                        <td>R$400 por pessoa (1 pessoa)</td>
+                    </tr>
+                    <tr>
+                        <td>R$450 por pessoa (2-3 pessoas)</td>
+                        <td>R$315 por pessoa (2-3 pessoas)</td>
+                        <td>R$205 por pessoa (2-3 pessoas)</td>
+                    </tr>
+                    <tr>
+                        <td>R$350 por pessoa (4-5 pessoas)</td>
+                        <td>R$250 por pessoa (4-5 pessoas)</td>
+                        <td>R$150 por pessoa (4-5 pessoas)</td>
+                    </tr>
+                    <tr>
+                        <td>R$290 por pessoa (6-8 pessoas)</td>
+                        <td>R$205 por pessoa (6-8 pessoas)</td>
+                        <td>R$100 por pessoa (6-8 pessoas)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="table-title temporada">
+                <h2>Baixa temporada 2024 - Período com exceção das férias escolares e feriados prolongados</h2>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Adultos (a partir de 9 anos)</th>
+                        <th scope="col">Crianças (de 3 a 8 anos)</th>
+                        <th scope="col">Bebês (de 0 a 2 anos)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>R$800 por pessoa (1 pessoa)</td>
+                        <td>R$560 por pessoa (1 pessoa)</td>
+                        <td>R$400 por pessoa (1 pessoa)</td>
+                    </tr>
+                    <tr>
+                        <td>R$450 por pessoa (2-3 pessoas)</td>
+                        <td>R$315 por pessoa (2-3 pessoas)</td>
+                        <td>R$205 por pessoa (2-3 pessoas)</td>
+                    </tr>
+                    <tr>
+                        <td>R$350 por pessoa (4-5 pessoas)</td>
+                        <td>R$250 por pessoa (4-5 pessoas)</td>
+                        <td>R$150 por pessoa (4-5 pessoas)</td>
+                    </tr>
+                    <tr>
+                        <td>R$290 por pessoa (6-8 pessoas)</td>
+                        <td>R$205 por pessoa (6-8 pessoas)</td>
+                        <td>R$100 por pessoa (6-8 pessoas)</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -703,133 +259,23 @@
 
     <!-- Botão Formulário -->
     <section class="botao">
-        <style>
-            .botao {
-                margin-bottom: 60px;
-            }
-            .botao-forms {
-                text-align: center;
-                display: block;
-                margin: 30px auto 0; 
-                width: 234px;
-                font-size: 20px; 
-                padding: 10px 20px;
-                text-decoration: none; 
-                background-color: #daa520 !important; 
-                color: #eeece1 !important; 
-                border: 5px solid #f2b705 !important; 
-                border-radius: 5px; 
-                cursor: pointer; 
-                transition: background-color 0.3s, color 0.3s; 
-            }
-    
-            .botao-forms:hover {
-                background-color: #f2b705 !important; 
-                color: white !important; 
-                border-color: #f2b705 !important; 
-            }
-    
-            .botao-forms:active, .botao-forms:focus {
-                background-color: #f2b705 !important; 
-                color: white !important; 
-                border-color: #f2b705 !important; 
-            }
-            </style>
-        <a href="formulario.html" class="botao-forms">Entrar em Contato</a>
+        
+        <a th:href="@{/}" class="botao-forms">Entrar em Contato</a>
     </section>
     <!-- Botão Formulário -->
 
 
     <!-- Outros Roteiros -->
     <section class="pt-5 pb-5 outros-roteiros">
-        <style>
-            .outros-roteiros {
-                background-image: url("img/descricao.jpg");
-                max-width: 900px;
-                margin: 20px auto; 
-                padding: 0px;
-                border-radius: 15px;
-                display: flex;
-                justify-content: center; 
-                align-items: center; 
-                min-height: 400px; 
-                flex-wrap: wrap; 
-            }
-    
-            .outros-roteiros-texto {
-                max-width: 800px;
-                background-color: #1b3a24;
-                border: 7px solid #1b3a24;
-                border-radius: 15px;
-                padding: 40px;
-                text-align: center;
-            }
-    
-            .outros-roteiros h2 {
-                font-size: 33px;
-                color: #eeece1;
-                margin-bottom: 20px;
-            }
-    
-            .outros-roteiros p {
-                color: #eeece1;
-                margin-bottom: 20px;
-            }
-    
-            .outros-roteiros .btn {
-                display: inline-block;
-                margin: 5px 5px; 
-            }
-    
-            @media (min-width: 992px) {
-                .outros-roteiros img {
-                    margin-left: 10px; 
-                }
-            }
-    
-            @media (max-width: 768px) {
-                .outros-roteiros {
-                    padding: 15px;
-                }
-    
-                .outros-roteiros-texto {
-                    padding: 20px;
-                }
-    
-                .outros-roteiros h2 {
-                    font-size: 28px;
-                }
-            }
-            .btn-custom {
-                background-color: #277342; /* Cor de fundo desejada */
-                border-color: #277342; /* Cor da borda */
-                color: #eeece1; /* Cor do texto */
-            }
-
-            .btn-custom:hover {
-                background-color: #45a049; /* Cor de fundo no hover */
-                border-color: #45a049; /* Cor da borda no hover */
-                color: #eeece1;
-            }
-            .btn-custom:focus {
-                background-color: #4CAF50; /* Cor ao receber foco */
-                border-color: #4CAF50;
-                box-shadow: 0 0 0 0.25rem rgba(76, 175, 80, 0.5); 
-            }.btn-custom:active {
-                background-color: #2c6b3f; /* Cor de fundo ao ser clicado */
-                border-color: #2c6b3f; /* Cor da borda ao ser clicado */
-                color: #eeece1; /* Cor do texto */
-                transform: scale(0.98); 
-            }
-        </style>
+        
         <div>
             <div>
                 <div class="outros-roteiros-texto">
                     <h2>Encontre outros <strong>Roteiros</strong></h2>
                     <p>Não encontrou o que procurava?</p>
                     <p>Explore uma variedade de pacotes e passeios personalizados <br> para uma experiência única.</p>
-                    <a href="/passeios.html" class="btn btn-lg btn-custom">PASSEIOS</a>
-                    <a href="/pacotes.html" class="btn btn-lg btn-custom">PACOTES</a>
+                    <a th:href="@{/passeios}" class="btn btn-lg btn-custom">PASSEIOS</a>
+                    <a th:href="@{/pacotes}" class="btn btn-lg btn-custom">PACOTES</a>
                 </div>
             </div>
         </div>
@@ -839,108 +285,7 @@
 
     <!-- Rodapé -->
     <footer class="footer-rodape" id="contato">
-        <style>
-            .footer-rodape {
-                border-top: 7px solid #daa520;
-                padding: 30px 0 10px 0;
-                background-color: #1b3a24;
-                color: white;
-                text-align: center; 
-                margin-top: 70px;
-            }
-    
-            .container-rodape {
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 160px; 
-            }
-    
-            .footer-secao {
-                text-align: center; 
-            }
-    
-            .footer-secao h3, .footer-secao p {
-                color: white; 
-                margin: 0;
-                font-size: 1.1em;
-            }
-    
-            .redes-sociais-rodape {
-                display: flex;
-                justify-content: center;
-            }
-    
-            .redes-sociais-rodape img[alt="Facebook"] {
-                width: 27px;
-                margin-right: 10px;
-                filter: invert(1) brightness(100%);
-            }
-
-            .redes-sociais-rodape img[alt="Instagram"] {
-                width: 27px;
-                margin-right: 10px;
-            }
-    
-            .blog-rodape img {
-                width: 30px;
-            }
-            
-            .direitos-autorais {
-                margin-top: 30px;
-                width: 100%;
-                text-align: center;
-            }
-
-            .direitos-autorais p {
-                color: #eeece1;
-            }
-
-            .direitos-autorais h3 {
-                color: #daa520;
-            }
-    
-            .contato-info-rodape {
-                display: flex;
-                justify-content: center;
-                gap: 120px;
-                align-items: center; 
-            }
-    
-            @media (max-width: 768px) {
-                .contato-info-rodape {
-                    flex-direction: column;
-                    gap: 30px; 
-                }
-                .container-rodape {
-                    gap: 40px; 
-                }
-                .redes-sociais-rodape {
-                    gap: 0px; 
-                }
-                .direitos-autorais {
-                    margin-top: 20px;
-                    order: 1; 
-                }
-            }
-    
-            @media (min-width: 769px) {
-                .direitos-autorais {
-                    order: 2; 
-                    margin-top: 20px; 
-                }
-            }
-
-            .direitos-autorais p a {
-                color: #daa520; /* Substitua com a cor desejada */
-                text-decoration: none; /* Remove o sublinhado, se preferir */
-            }
-
-            .direitos-autorais p a:hover {
-                color: #af8917; /* Cor ao passar o mouse (opcional) */
-            }
-
-        </style>
+        
         <div class="container-rodape">
             <div class="contato-info-rodape">
                 <div class="footer-secao">
@@ -974,7 +319,7 @@
         </div>
         <!-- Direitos autorais -->
         <div class="direitos-autorais">
-            <p>&copy; <a class="direitos-autorais" href="/index.html">Roteiros do Velho Chico</a> Todos os Direitos Reservados.</p>
+            <p>&copy; <a class="direitos-autorais" th:href="@{/}">Roteiros do Velho Chico</a> Todos os Direitos Reservados.</p>
         </div>
     </footer>
     <!-- Rodapé -->
@@ -993,5 +338,6 @@
     <script src="/js/jquery.counterup.min.js"></script>
     <script src="/js/waypoints.min.js"></script>		
     <script src="/js/main.js"></script>
+    <script src="/js/produto.js"></script>
 </body>
 </html>

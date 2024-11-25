@@ -1,0 +1,324 @@
+
+        body {
+            font-family: 'Poppins', serif;
+            background-color: #eeece1;
+        }
+    
+
+    
+        .logotipo img {
+            width: 70px;
+        }
+        .navbar {
+            background-color: #1b3a24;
+        }
+        header {
+            border-bottom: 7px solid #daa520;
+        }
+    
+
+    
+            .botao {
+                margin-bottom: -30px;
+                margin-top: 10px;
+                margin-left: 60px;
+            }
+            .roteiros-destaque {
+                text-align: center;
+                margin-top: 20px;
+                margin-bottom: -100px;
+            }
+
+            .roteiros-destaque h1 {
+                font-size: 40px;
+            }
+
+            .roteiros-subtitulo {
+                font-size: 16px;
+                text-align: center;
+            }
+
+            .roteiros-subtitulo p {
+                color: #1b3a24;
+            }
+            
+            .roteiros-carrossel {
+                margin-top: 10px;
+            }
+
+            .card{
+                border-radius: 15px;
+            }
+
+            .card-body {
+                border: 7px solid #1b3a24;
+                border-radius: 15px;
+                border-top-right-radius: 0px;
+                border-top-left-radius: 0px;
+                background-color: #1b3a24;
+                max-height: 1000px; 
+                overflow: hidden;
+            }
+
+            .card img {
+                border-radius: 15px;
+                border-bottom-right-radius: 0px;
+                border-bottom-left-radius: 0px;
+                height: 400px; 
+                object-fit: cover; 
+                width: 100%;
+            }
+            .card-body h4 {
+                color: #eeece1;
+            }
+            .card-body p {
+                color: #eeece1;
+            }
+            .btn-custom {
+                background-color: #277342; /* Cor de fundo desejada */
+                border-color: #277342; /* Cor da borda */
+                color: #eeece1; /* Cor do texto */
+            }
+
+            .btn-custom:hover {
+                background-color: #45a049; /* Cor de fundo no hover */
+                border-color: #45a049; /* Cor da borda no hover */
+                color: #eeece1;
+            }
+            .btn-custom:focus {
+                background-color: #4CAF50; /* Cor ao receber foco */
+                border-color: #4CAF50;
+                box-shadow: 0 0 0 0.25rem rgba(76, 175, 80, 0.5); 
+            }.btn-custom:active {
+                background-color: #2c6b3f; /* Cor de fundo ao ser clicado */
+                border-color: #2c6b3f; /* Cor da borda ao ser clicado */
+                color: #eeece1; /* Cor do texto */
+                transform: scale(0.98); 
+            }
+
+        
+
+        
+            .explicativa-roteiros {
+                margin-bottom: -40px;
+            }
+            .sobre-paragrafo {
+                text-align: justify;
+                color: #eeece1;
+                margin-top: 10px;
+            }
+            .sobre-paragrafo strong {
+                font-weight: bold;
+            }
+            .roteiros-h2 strong {
+                color:#daa520;
+            }
+            .roteiros-p strong {
+                color: #eeece1;
+            }
+            .rvc-roteiros h2 {
+                font-size: 25px;
+            }
+            .rvc-roteiros {
+                border: 7px solid #f2b705;
+                border-radius: 25px;
+                background-color: #551c1c;
+                height: 100px;
+                max-width: 350px; 
+                margin: 0 auto; 
+                padding: 15px;
+            }
+
+            @media (max-width: 768px) {
+                .rvc-roteiros {
+                    margin-top: -10px; 
+                    padding: 10px;
+                }
+
+                .sobre-paragrafo {
+                    font-size: 14px; 
+                }
+                .menu-content {
+                    margin-bottom: 20px; 
+                }
+                .single-info {
+                    margin-top: 10px; 
+                }
+            }
+
+            @media (max-width: 480px) {
+                .sobre-paragrafo {
+                    font-size: 12px; 
+                }
+                .menu-content {
+                    margin-bottom: 10px; 
+                }
+                .single-info {
+                    margin-top: 5px;
+                }
+            }
+        
+
+        
+            .feedbacks-titulo {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                margin: 20px 0;
+            }
+
+            .feedbacks-titulo h1 {
+                font-size: 35px;
+                color: #1b3a24;
+                margin-bottom: 0px;
+            }
+
+            .feedback-subtitulo p {
+                font-size: 1.0rem;
+                color: #1b3a24;
+                margin: 0;
+            }
+
+            @media (max-width: 768px) {
+                .feedbacks-titulo h1 {
+                    font-size: 2rem;
+                }
+
+                .feedback-subtitulo p {
+                    font-size: 1rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .feedbacks-titulo h1 {
+                    font-size: 1.75rem;
+                }
+
+                .feedback-subtitulo p {
+                    font-size: 0.9rem;
+                }
+            }
+            .feedback-titulo {
+                color: #1b3a24;
+                align-items: center;
+            }
+            .feedbacks {
+                max-width: 1100px;
+                border-radius: 15px;
+                margin: 0 auto;
+                background-color: #1b3a24;
+                padding: 40px;
+                text-align: center;
+            }
+            .carrossel-feedbacks h5 {
+                color: #daa520;
+            }
+            .carrossel-feedbacks p {
+                color: #eeece1;
+            }
+        
+
+        
+            .footer-rodape {
+                border-top: 7px solid #daa520;
+                padding: 30px 0 10px 0;
+                background-color: #1b3a24;
+                color: white;
+                text-align: center; 
+                margin-top: 70px;
+            }
+    
+            .container-rodape {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 160px; 
+            }
+    
+            .footer-secao {
+                text-align: center; 
+            }
+    
+            .footer-secao h3, .footer-secao p {
+                color: white; 
+                margin: 0;
+                font-size: 1.1em;
+            }
+    
+            .redes-sociais-rodape {
+                display: flex;
+                justify-content: center;
+            }
+    
+            .redes-sociais-rodape img[alt="Facebook"] {
+                width: 27px;
+                margin-right: 10px;
+                filter: invert(1) brightness(100%);
+            }
+
+            .redes-sociais-rodape img[alt="Instagram"] {
+                width: 27px;
+                margin-right: 10px;
+            }
+    
+            .blog-rodape img {
+                width: 30px;
+            }
+            
+            .direitos-autorais {
+                margin-top: 30px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .direitos-autorais p {
+                color: #eeece1;
+            }
+
+            .direitos-autorais h3 {
+                color: #daa520;
+            }
+    
+            .contato-info-rodape {
+                display: flex;
+                justify-content: center;
+                gap: 120px;
+                align-items: center; 
+            }
+    
+            @media (max-width: 768px) {
+                .contato-info-rodape {
+                    flex-direction: column;
+                    gap: 30px; 
+                }
+                .container-rodape {
+                    gap: 40px; 
+                }
+                .redes-sociais-rodape {
+                    gap: 0px; 
+                }
+                .direitos-autorais {
+                    margin-top: 20px;
+                    order: 1; 
+                }
+            }
+    
+            @media (min-width: 769px) {
+                .direitos-autorais {
+                    order: 2; 
+                    margin-top: 20px; 
+                }
+            }
+
+            .direitos-autorais p a {
+                color: #daa520; /* Substitua com a cor desejada */
+                text-decoration: none; /* Remove o sublinhado, se preferir */
+            }
+
+            .direitos-autorais p a:hover {
+                color: #af8917; /* Cor ao passar o mouse (opcional) */
+            }
+
+        

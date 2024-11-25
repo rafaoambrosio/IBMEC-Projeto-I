@@ -8,6 +8,7 @@
     <h1>Avaliar</h1>
     
     <form id="reviewForm">
+        <label>Nome: <input type="text" name="nomeAvaliacao" required></label>
         <label>Nota: <input type="number" name="notaAvaliacao" min="0" required></label>
         <label>Comentário: <textarea name="comentarioAvaliacao"></textarea></label>
         <button type="submit">Submit</button>
@@ -20,11 +21,13 @@
 
             // Collecting form values
             const form = event.target;
+            const nome = form.nomeAvaliacao.value;
             const nota = form.notaAvaliacao.value;
             const comentario = form.comentarioAvaliacao.value;
 
             // Creating the JSON object
             const data = {
+                nome,
                 nota,
                 comentario
             };
