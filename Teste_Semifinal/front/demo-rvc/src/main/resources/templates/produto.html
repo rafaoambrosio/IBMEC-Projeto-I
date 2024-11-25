@@ -67,8 +67,8 @@
     <!-- Título -->
     
     <div class="titulo">
-        <h1>Pedrona Top</h1>
-        <p>Passeio</p>
+        <h1 th:text="${produto.titulo}">Pedrona Top</h1>
+        <p th:text="${produto.tipo}">Passeio</p>
     </div>
     <!-- Título -->
 
@@ -80,19 +80,21 @@
         <div class="container-flex">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    <li th:each="imagem, stat : ${produto.imagens}" 
+                        data-target="#carouselExampleIndicators" 
+                        th:attr="data-slide-to=${stat.index}" 
+                        th:classappend="${stat.index == 0} ? 'active'">
+                    </li>
                 </ol>
+            
+                <!-- Carousel Inner -->
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="/img/pacotes.jpg" class="d-block w-100" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/img/pacotes.jpg" class="d-block w-100" alt="Second slide"> 
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/img/pacotes.jpg" class="d-block w-100" alt="Third slide">                          
+                    <div th:each="imagem, stat : ${produto.imagens}" 
+                         th:classappend="${stat.index == 0} ? 'active'" 
+                         class="carousel-item">
+                        <img th:src="'data:image/png;base64,' + ${imagem.bytes}" 
+                             class="d-block w-100" 
+                             th:alt="|Slide ${stat.index + 1}|">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -106,7 +108,7 @@
             </div>
             <div class="info-div">
                 <h3>Por que escolher <strong>Pedrona Top</strong>?</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero error voluptas iusto culpa doloremque maxime tempore, natus reiciendis quam accusamus voluptatum?</p>
+                <p th:text="${produto.resumo}">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero error voluptas iusto culpa doloremque maxime tempore, natus reiciendis quam accusamus voluptatum?</p>
             </div>
         </div>
     </section>    
@@ -122,8 +124,8 @@
               <img src="/img/localizacao.png" alt="Ecoturismo Exclusivo">
             </div>
             <div>
-              <h3>Localização ou Destino</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quidem dolore eveniet aperiam architecto deserunt delectus, quisquam sapiente ab voluptatum dolores sint atque labore dolor amet alias neque fugiat explicabo.</p>
+              <h3>Localização</h3>
+              <p th:text="${produto.localizacao}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quidem dolore eveniet aperiam architecto deserunt delectus, quisquam sapiente ab voluptatum dolores sint atque labore dolor amet alias neque fugiat explicabo.</p>
             </div>
           </div>
           <div class="rvc-differential-2">
@@ -132,16 +134,7 @@
             </div>
             <div>
               <h3>Descrição</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere atque, eos placeat sit veritatis maiores repellendus cupiditate quis aliquam minus excepturi perferendis assumenda laudantium quasi deleniti cumque commodi, accusamus voluptatum!</p>
-            </div>
-          </div>
-          <div class="rvc-differential">
-            <div class="rvc-icon community-partnerships-icon">
-              <img src="/img/caracteristicas.png" alt="Parcerias Locais">
-            </div>
-            <div>
-              <h3>Características</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates iure, explicabo minus molestiae libero quibusdam expedita non tenetur mollitia tempore ducimus officia. Reprehenderit deleniti reiciendis labore incidunt repellat iste provident?</p>
+              <p th:text="${produto.descricao}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere atque, eos placeat sit veritatis maiores repellendus cupiditate quis aliquam minus excepturi perferendis assumenda laudantium quasi deleniti cumque commodi, accusamus voluptatum!</p>
             </div>
           </div>
           <div class="rvc-differential-2">
@@ -149,17 +142,27 @@
               <img src="/img/observacao.png" alt="Suporte Dedicado">
             </div>
             <div>
-              <h3>Observações</h3>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione numquam suscipit nobis corporis ab odio adipisci, dolores facilis vitae perspiciatis exercitationem ipsum eius incidunt sint rem nam? Minus, libero laborum.</p>
+                <h3>Observações</h3>
+                <ul>
+                    <li th:each="observacao : ${produto.observacoes}">
+                        <p th:text="${observacao}"></p>
+                    <!-- Observation text will be inserted here -->
+                    </li>
+                </ul>
             </div>
           </div>
-          <div class="rvc-differential">
-            <div class="rvc-icon cultural-experiences-icon">
-              <img src="/img/inclusos.png" alt="Experiências Culturais">
-            </div>
+          <div class="rvc-differential" style="text-align: right; justify-content: right;"> 
             <div>
-              <h3>Inclusos</h3>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti maxime dolor veritatis. Reprehenderit neque natus, eaque ducimus tenetur repellat in laborum aperiam ipsum, numquam necessitatibus possimus fugiat? Iure, culpa voluptatem!</p>
+                <h3>Inclusos</h3>
+                <ul>
+                    <li th:each="observacao : ${produto.itensInclusos}">
+                        <p th:text="${observacao}"></p>
+                    <!-- Observation text will be inserted here -->
+                    </li>
+                </ul>
+            </div>
+            <div class="rvc-icon cultural-experiences-icon">
+                <img src="/img/inclusos.png" alt="Experiências Culturais">
             </div>
           </div>
           <div class="rvc-differential-2">
@@ -167,8 +170,13 @@
               <img src="/img/dicas.png" alt="Foco em Sustentabilidade">
             </div>
             <div>
-              <h3>Dicas e Informações</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus id qui minima cupiditate itaque. Perferendis maiores ipsum earum optio corporis repellendus, eaque, id aspernatur accusantium nihil quae quas placeat sed.</p>
+                <h3>Dicas e Informações</h3>
+                <ul>
+                    <li th:each="observacao : ${produto.dicas}">
+                        <p th:text="${observacao}"></p>
+                    <!-- Observation text will be inserted here -->
+                    </li>
+                </ul>
             </div>
           </div>
         </div>
@@ -190,65 +198,51 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">Adultos (a partir de 9 anos)</th>
-                        <th scope="col">Crianças (de 3 a 8 anos)</th>
-                        <th scope="col">Bebês (de 0 a 2 anos)</th>
+                        <th>Group</th> <!-- Label column for groups (1 person, 2-3 people, etc.) -->
+                        <th th:each="faixaPreco : ${produto.faixaPreco}" th:text="${faixaPreco.faixa}">Faixa</th>
                     </tr>
                 </thead>
+                <!-- Table Body -->
                 <tbody>
                     <tr>
-                        <td>R$800 por pessoa (1 pessoa)</td>
-                        <td>R$560 por pessoa (1 pessoa)</td>
-                        <td>R$400 por pessoa (1 pessoa)</td>
+                        <td>1 pessoa</td>
+                        <td th:each="faixaPreco : ${produto.faixaPreco}" th:text="'R$' + ${faixaPreco.preco_alta_1p} + ' por pessoa'"></td>
                     </tr>
                     <tr>
-                        <td>R$450 por pessoa (2-3 pessoas)</td>
-                        <td>R$315 por pessoa (2-3 pessoas)</td>
-                        <td>R$205 por pessoa (2-3 pessoas)</td>
+                        <td>2-3 pessoas</td>
+                        <td th:each="faixaPreco : ${produto.faixaPreco}" th:text="'R$' + ${faixaPreco.preco_alta_2_3p} + ' por pessoa'"></td>
                     </tr>
                     <tr>
-                        <td>R$350 por pessoa (4-5 pessoas)</td>
-                        <td>R$250 por pessoa (4-5 pessoas)</td>
-                        <td>R$150 por pessoa (4-5 pessoas)</td>
-                    </tr>
-                    <tr>
-                        <td>R$290 por pessoa (6-8 pessoas)</td>
-                        <td>R$205 por pessoa (6-8 pessoas)</td>
-                        <td>R$100 por pessoa (6-8 pessoas)</td>
+                        <td>4+ pessoas</td>
+                        <td th:each="faixaPreco : ${produto.faixaPreco}" th:text="'R$' + ${faixaPreco.preco_alta_4p} + ' por pessoa'"></td>
                     </tr>
                 </tbody>
             </table>
+            
+            <!-- Baixa Temporada -->
             <div class="table-title temporada">
                 <h2>Baixa temporada 2024 - Período com exceção das férias escolares e feriados prolongados</h2>
             </div>
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">Adultos (a partir de 9 anos)</th>
-                        <th scope="col">Crianças (de 3 a 8 anos)</th>
-                        <th scope="col">Bebês (de 0 a 2 anos)</th>
+                        <th>Group</th> <!-- Label column for groups (1 person, 2-3 people, etc.) -->
+                        <th th:each="faixaPreco : ${produto.faixaPreco}" th:text="${faixaPreco.faixa}">Faixa</th>
                     </tr>
                 </thead>
+                <!-- Table Body -->
                 <tbody>
                     <tr>
-                        <td>R$800 por pessoa (1 pessoa)</td>
-                        <td>R$560 por pessoa (1 pessoa)</td>
-                        <td>R$400 por pessoa (1 pessoa)</td>
+                        <td>1 pessoa</td>
+                        <td th:each="faixaPreco : ${produto.faixaPreco}" th:text="'R$' + ${faixaPreco.preco_baixa_1p} + ' por pessoa'"></td>
                     </tr>
                     <tr>
-                        <td>R$450 por pessoa (2-3 pessoas)</td>
-                        <td>R$315 por pessoa (2-3 pessoas)</td>
-                        <td>R$205 por pessoa (2-3 pessoas)</td>
+                        <td>2-3 pessoas</td>
+                        <td th:each="faixaPreco : ${produto.faixaPreco}" th:text="'R$' + ${faixaPreco.preco_baixa_2_3p} + ' por pessoa'"></td>
                     </tr>
                     <tr>
-                        <td>R$350 por pessoa (4-5 pessoas)</td>
-                        <td>R$250 por pessoa (4-5 pessoas)</td>
-                        <td>R$150 por pessoa (4-5 pessoas)</td>
-                    </tr>
-                    <tr>
-                        <td>R$290 por pessoa (6-8 pessoas)</td>
-                        <td>R$205 por pessoa (6-8 pessoas)</td>
-                        <td>R$100 por pessoa (6-8 pessoas)</td>
+                        <td>4+ pessoas</td>
+                        <td th:each="faixaPreco : ${produto.faixaPreco}" th:text="'R$' + ${faixaPreco.preco_baixa_4p} + ' por pessoa'"></td>
                     </tr>
                 </tbody>
             </table>

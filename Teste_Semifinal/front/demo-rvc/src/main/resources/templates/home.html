@@ -68,50 +68,51 @@
         </section>
         <!-- Banner -->
         <section class="default-banner active-blog-slider">
-                <div class="item-slider relative" style="background: url(img/slide1.jpg);background-size: cover;">
-                    <div class="overlay" style="background: rgba(0,0,0,.3)"></div>
-                    <div class="container">
-                        <div class="row fullscreen justify-content-center align-items-center">
-                            <div class="col-md-10 col-12">
-                                <div class="banner-content text-center">
-                                    <h1 class="text-uppercase text-white-2">Roteiros do Velho Chico</h1>
-                                    <p class="text-white-2">"Descubra o verdadeiro encanto do norte de Minas: experiências únicas de ecoturismo, <br> em harmonia com a natureza e as comunidades locais."</p>
-                                    <a href="#quem-somos" class="text-uppercase header-btn">Saiba Mais</a>
-                                </div>
+            <div class="item-slider relative" style="background: url(img/slide1.jpg);background-size: cover;">
+                <div class="overlay" style="background: rgba(0,0,0,.3)"></div>
+                <div class="container">
+                    <div class="row fullscreen justify-content-center align-items-center">
+                        <div class="col-md-10 col-12">
+                            <div class="banner-content text-center">
+                                <h1 class="text-uppercase text-white-2">Roteiros do Velho Chico</h1>
+                                <p class="text-white-2">"Descubra o verdadeiro encanto do norte de Minas: experiências únicas de ecoturismo, <br> em harmonia com a natureza e as comunidades locais."</p>
+                                <a href="#quem-somos" class="text-uppercase header-btn">Saiba Mais</a>
                             </div>
+                        </div>
 
-                        </div>
                     </div>
                 </div>
-                <div class="item-slider relative" style="background: url(img/slide2.jpg);background-size: cover;">
-                    <div class="overlay" style="background: rgba(0,0,0,.3)"></div>
-                    <div class="container">
-                        <div class="row fullscreen justify-content-center align-items-center">
-                            <div class="col-md-10 col-12">
-                                <div class="banner-content text-center">
-                                    <h1 class="text-uppercase text-white-2">Roteiros do Velho Chico</h1>
-                                    <p class="text-white-2">"Descubra o verdadeiro encanto do norte de Minas: experiências únicas de ecoturismo, <br> em harmonia com a natureza e as comunidades locais."</p>
-                                    <a href="#quem-somos" class="text-uppercase header-btn">Saiba Mais</a>
-                                </div>
+            </div>
+            <div class="item-slider relative" style="background: url(img/slide2.jpg);background-size: cover;">
+                <div class="overlay" style="background: rgba(0,0,0,.3)"></div>
+                <div class="container">
+                    <div class="row fullscreen justify-content-center align-items-center">
+                        <div class="col-md-10 col-12">
+                            <div class="banner-content text-center">
+                                <h1 class="text-uppercase text-white-2">Roteiros do Velho Chico</h1>
+                                <p class="text-white-2">"Descubra o verdadeiro encanto do norte de Minas: experiências únicas de ecoturismo, <br> em harmonia com a natureza e as comunidades locais."</p>
+                                <a href="#quem-somos" class="text-uppercase header-btn">Saiba Mais</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="item-slider relative" style="background: url(img/slide3.jpg);background-size: cover;">
-                    <div class="overlay" style="background: rgba(0,0,0,.3)"></div>
-                    <div class="container">
-                        <div class="row fullscreen justify-content-center align-items-center">
-                            <div class="col-md-10 col-12">
-                                <div class="banner-content text-center">
-                                    <h1 class="text-uppercase text-white-2">Roteiros do Velho Chico</h1>
-                                    <p class="text-white-2">"Descubra o verdadeiro encanto do norte de Minas: experiências únicas de ecoturismo, <br> em harmonia com a natureza e as comunidades locais."</p>
-                                    <a href="#quem-somos" class="text-uppercase header-btn">Saiba Mais</a>
-                                </div>
+            </div>
+            <div class="item-slider relative" style="background: url(img/slide3.jpg);background-size: cover;">
+                <div class="overlay" style="background: rgba(0,0,0,.3)"></div>
+                <div class="container">
+                    <div class="row fullscreen justify-content-center align-items-center">
+                        <div class="col-md-10 col-12">
+                            <div class="banner-content text-center">
+                                <h1 class="text-uppercase text-white-2">Roteiros do Velho Chico</h1>
+                                <p class="text-white-2">"Descubra o verdadeiro encanto do norte de Minas: experiências únicas de ecoturismo, <br> em harmonia com a natureza e as comunidades locais."</p>
+                                <a href="#quem-somos" class="text-uppercase header-btn">Saiba Mais</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+            
+        </section>
 
         <!-- Quem Somos -->
         <section class="section-gap info-area" id="quem-somos">
@@ -241,70 +242,33 @@
                                 <div class="carousel-item active">
                                     <div class="row">
                                         
-                                        <div class="col-md-4 mb-3">
-                                            <div class="card">
-                                                <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
+                                        <div class="col-md-4 mb-3" th:each="produto, stat : ${produtos}"  th:if="${stat.index < 3}">
+                                            <div class="card" >
+                                                <a th:href="@{/produto/{id}(id=${produto.id})}">
+                                                    <img class="img-fluid" alt="100%x280" th:src="'data:image/png;base64,' + ${produto.imagens[0].bytes}">
+                                                </a>
                                                 <div class="card-body">
-                                                    <h4 class="card-title">PACOTE X</h4>
-                                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                    <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
-                                                </div>
-        
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="card">
-                                                <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
-                                                <div class="card-body">
-                                                    <h4 class="card-title">PACOTE X</h4>
-                                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                    <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
+                                                    <h4 class="card-title" th:text="${produto.titulo}">PACOTE X</h4>
+                                                    <p class="card-text" th:text="${produto.resumo}">With supporting text below as a natural lead-in to additional content.</p>
+                                                    <a class="btn btn-primary btn-custom" th:href="@{/produto/{id}(id=${produto.id})}" role="button">Saiba Mais!</a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="card">
-                                                <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
-                                                <div class="card-body">
-                                                    <h4 class="card-title">PACOTE X</h4>
-                                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                    <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
-                                                </div>
-                                            </div>
-                                        </div>
-        
+
                                     </div>
                                 </div>
                                 <div class="carousel-item">
                                     <div class="row">
-                                        <div class="col-md-4 mb-3">
-                                            <div class="card">
-                                                <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
+                                        
+                                        <div class="col-md-4 mb-3" th:each="produto, stat : ${produtos}"  th:if="${stat.index >= 3 and stat.index < 6}">
+                                            <div class="card" >
+                                                <a th:href="@{/produto/{id}(id=${produto.id})}">
+                                                    <img class="img-fluid" alt="100%x280" th:src="'data:image/png;base64,' + ${produto.imagens[0].bytes}">
+                                                </a>
                                                 <div class="card-body">
-                                                    <h4 class="card-title">PASSEIO X</h4>
-                                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                    <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
-                                                </div>
-        
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="card">
-                                                <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
-                                                <div class="card-body">
-                                                    <h4 class="card-title">PASSEIO X</h4>
-                                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                    <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="card">
-                                                <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
-                                                <div class="card-body">
-                                                    <h4 class="card-title">PASSEIO X</h4>
-                                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                    <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
+                                                    <h4 class="card-title" th:text="${produto.titulo}">PACOTE X</h4>
+                                                    <p class="card-text" th:text="${produto.resumo}">With supporting text below as a natural lead-in to additional content.</p>
+                                                    <a class="btn btn-primary btn-custom" th:href="@{/produto/{id}(id=${produto.id})}" role="button">Saiba Mais!</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -314,37 +278,19 @@
                                 <div class="carousel-item">
                                     <div class="row">
         
-                                        <div class="col-md-4 mb-3">
-                                            <div class="card">
-                                                <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
+                                        <div class="col-md-4 mb-3" th:each="produto, stat : ${produtos}"  th:if="${stat.index >= 6 and stat.index < 9}">
+                                            <div class="card" >
+                                                <a th:href="@{/produto/{id}(id=${produto.id})}">
+                                                    <img class="img-fluid" alt="100%x280" th:src="'data:image/png;base64,' + ${produto.imagens[0].bytes}">
+                                                </a>
                                                 <div class="card-body">
-                                                    <h4 class="card-title">PACOTE X</h4>
-                                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                    <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
-                                                </div>
-        
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="card">
-                                                <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
-                                                <div class="card-body">
-                                                    <h4 class="card-title">PACOTE X</h4>
-                                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                    <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
+                                                    <h4 class="card-title" th:text="${produto.titulo}">PACOTE X</h4>
+                                                    <p class="card-text" th:text="${produto.resumo}">With supporting text below as a natural lead-in to additional content.</p>
+                                                    <a class="btn btn-primary btn-custom" th:href="@{/produto/{id}(id=${produto.id})}" role="button">Saiba Mais!</a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="card">
-                                                <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
-                                                <div class="card-body">
-                                                    <h4 class="card-title">PACOTE X</h4>
-                                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                    <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -372,8 +318,8 @@
                     <div class="outros-roteiros-texto">
                         <h2>Encontre outros <strong>Roteiros</strong></h2>
                         <p>Explore uma variedade de pacotes e passeios personalizados <br> para uma experiência única.</p>
-                        <a href="/passeios.html" class="btn btn-lg btn-custom">PASSEIOS</a>
-                        <a href="/pacotes.html" class="btn btn-lg btn-custom">PACOTES</a>
+                        <a th:href="@{/passeios}" class="btn btn-lg btn-custom">PASSEIOS</a>
+                        <a th:href="@{/pacotes}" class="btn btn-lg btn-custom">PACOTES</a>
                     </div>
                 </div>
             </div>

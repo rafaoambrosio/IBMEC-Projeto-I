@@ -23,7 +23,7 @@ public class MainController {
     public String home(Model model) {
         String url = "http://localhost:8080/";
         List<?> data = restTemplate.getForObject(url, List.class);
-        model.addAttribute("data", data);
+        model.addAttribute("produtos", data);
         return "home"; // Corresponds to home.html
     }
 
@@ -31,7 +31,7 @@ public class MainController {
     public String catalogo(Model model) {
         String url = "http://localhost:8080/";
         List<?> data = restTemplate.getForObject(url, List.class);
-        model.addAttribute("data", data);
+        model.addAttribute("produtos", data);
         return "catalogo"; // Corresponds to catalogo.html
     }
 
@@ -39,7 +39,7 @@ public class MainController {
     public String produto(@PathVariable("id") Long id, Model model) {
         String url = "http://localhost:8080/" + id;
         Object data = restTemplate.getForObject(url, Object.class);
-        model.addAttribute("product", data);
+        model.addAttribute("produto", data);
         return "produto";
     }
 
@@ -53,7 +53,7 @@ public class MainController {
     public String passeios(Model model) {
         String url = "http://localhost:8080/passeios";
         List<?> data = restTemplate.getForObject(url, List.class);
-        model.addAttribute("data", data);
+        model.addAttribute("passeios", data);
         return "passeios"; // Corresponds to passeios
     }
 
@@ -61,7 +61,7 @@ public class MainController {
     public String pacotes(Model model) {
         String url = "http://localhost:8080/pacotes";
         List<?> data = restTemplate.getForObject(url, List.class);
-        model.addAttribute("data", data);
+        model.addAttribute("pacotes", data);
         return "pacotes"; // Corresponds to pacotes
     }
 
@@ -69,7 +69,7 @@ public class MainController {
     public String contato(Model model) {
         String url = "http://localhost:8080/";
         List<?> data = restTemplate.getForObject(url, List.class);
-        model.addAttribute("data", data);
+        model.addAttribute("produtos", data);
         return "contato"; // Corresponds to contato
     }
 }
