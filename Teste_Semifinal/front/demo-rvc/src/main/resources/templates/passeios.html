@@ -47,7 +47,7 @@
                     <ul class="navbar-nav">
                         <li><a th:href="@{/}">Menu</a></li>
                         <li><a th:href="@{/}">Quem Somos</a></li>									
-                        <li><a th:href="@{/contato}">Contato</a></li>
+                        <li><a th:href="@{/}">Contato</a></li>
                         <li><a href="http://blog.rvc.tur.br/">Blog</a></li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -84,18 +84,19 @@
                                 <div class="row">
                                     <!-- Itera sobre os produtos dentro do grupo -->
                                     <div th:each="produto : ${chunk}" class="col-md-4 mb-3">
-                                        <div class="card">
+                                        <div class="card" style="min-height: 650px; max-height: max-content">
                                             <!-- Exibe a imagem do produto -->
                                             <a th:href="@{/produto/{id}(id=${produto.id})}">
                                                 <img class="img-fluid" 
                                                         th:src="'data:image/png;base64,' + ${produto.imagens[0].bytes}" 
-                                                        alt="Product Image">
+                                                        alt="Product Image"
+                                                        style="height:300px">
                                             </a>
                                             <div class="card-body">
                                                 <!-- Título do produto -->
                                                 <h4 class="card-title" th:text="${produto.titulo}">Título do Produto</h4>
                                                 <!-- Resumo do produto -->
-                                                <p class="card-text" th:text="${produto.resumo}">Resumo do Produto</p>
+                                                <p class="card-text" th:text="${produto.resumo}" style="word-wrap: break-word;">Resumo do Produto</p>
                                                 <!-- Botão Saiba Mais -->
                                                 <a class="btn btn-primary btn-custom" 
                                                     th:href="@{/produto/{id}(id=${produto.id})}" 

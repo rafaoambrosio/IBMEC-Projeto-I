@@ -46,7 +46,7 @@
                     <ul class="navbar-nav">
                         <li><a th:href="@{/}">Menu</a></li>
                         <li><a th:href="@{/}">Quem Somos</a></li>									
-                        <li><a th:href="@{/contato}">Contato</a></li>
+                        <li><a th:href="@{/}">Contato</a></li>
                         <li><a href="http://blog.rvc.tur.br/">Blog</a></li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -120,7 +120,7 @@
             </div>
             <div class="info-div">
                 <h3>Quer se <strong>aventurar</strong>?</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero error voluptas iusto culpa doloremque maxime tempore, natus reiciendis quam accusamus voluptatum?</p>
+                <p th:text="${produto.resumo}">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero error voluptas iusto culpa doloremque maxime tempore, natus reiciendis quam accusamus voluptatum?</p>
             </div>
         </div>
     </section>    
@@ -132,7 +132,7 @@
         
         <div class="rvc-container">
           <div class="rvc-differential-2">
-            <div class="rvc-icon-2 custom-itineraries-icon">
+            <div class="rvc-icon-2 custom-itineraries-icon" style="margin-right: 20px;">
               <img src="/img/descricao.png" alt="Roteiros Sob Medida">
             </div>
             <div>
@@ -141,7 +141,7 @@
             </div>
           </div>
           <div class="rvc-differential" style="text-align: right; align-tems:right; justify-content:right">
-            <div>
+            <div style="margin-right:20px;">
                 <h3>Localização</h3>
                 <p th:text="${produto.localizacao}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quidem dolore eveniet aperiam architecto deserunt delectus, quisquam sapiente ab voluptatum dolores sint atque labore dolor amet alias neque fugiat explicabo.</p>
             </div>
@@ -150,7 +150,7 @@
             </div>
           </div>
           <div class="rvc-differential-2">
-            <div class="rvc-icon-2 premium-support-icon">
+            <div class="rvc-icon-2 premium-support-icon" style="margin-right:20px;">
               <img src="/img/observacao.png" alt="Suporte Dedicado">
             </div>
             <div>
@@ -164,7 +164,7 @@
             </div>
           </div>
           <div class="rvc-differential" style="text-align: right; justify-content: right;"> 
-            <div>
+            <div style="margin-right:20px;">
                 <h3>Inclusos</h3>
                 <ul>
                     <li th:each="observacao : ${produto.itensInclusos}">
@@ -178,7 +178,7 @@
             </div>
           </div>
           <div class="rvc-differential-2">
-            <div class="rvc-icon-2 sustainability-focus-icon">
+            <div class="rvc-icon-2 sustainability-focus-icon" style="margin-right:20px;">
               <img src="/img/dicas.png" alt="Foco em Sustentabilidade">
             </div>
             <div>
@@ -429,7 +429,7 @@
                             <!-- Dynamically generated fields for each faixaPreco -->
                             <div th:each="faixaPreco, iterStat : ${produto.faixaPreco}" class="form-group mb-3">
                                 <label th:for="'faixa' + ${iterStat.index}" th:text="${faixaPreco.faixa}"></label>
-                                <input type="number" min="0" th:id="'faixa' + ${iterStat.index}" th:name="'faixa' + ${iterStat.index}" class="form-control colored-input" placeholder="Número de pessoas">
+                                <input type="number" min="0" th:id="'faixa' + ${iterStat.index}" th:name="'faixa' + ${iterStat.index}" class="form-control colored-input" placeholder="" style="color: black;">
                             </div>
                             <!-- Observações -->
                             <div class="form-group mb-4">
@@ -439,7 +439,7 @@
                             <!-- Botões -->
                             <div class="form-group text-center">
                                 <button type="submit" class="btn btn-primary btn-block">Enviar Pré-Reserva</button>
-                                <button type="button" class="btn btn-secondary btn-block" onclick="closeForm()">Cancelar</button>
+                                <button type="button" class="btn btn-secondary btn-block" onclick="closeForm()" style="background-color: red; max-width: fit-content; border: 0px solid black; margin: auto; margin-top: 20px;">Cancelar</button>
                             </div>
                         </form>
                     </div>

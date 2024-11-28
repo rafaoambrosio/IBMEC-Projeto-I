@@ -48,7 +48,7 @@
                             <ul class="navbar-nav">
                                 <li><a th:href="@{/}">Menu</a></li>
                                 <li><a th:href="@{/}">Quem Somos</a></li>									
-                                <li><a th:href="@{/contato}">Contato</a></li>
+                                <li><a th:href="@{/}">Contato</a></li>
                                 <li><a href="http://blog.rvc.tur.br/">Blog</a></li>
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" href="#roteiros" id="navbardrop" data-toggle="dropdown">
@@ -243,7 +243,7 @@
                                     <div class="row">
                                         
                                         <div class="col-md-4 mb-3" th:each="produto, stat : ${produtos}"  th:if="${stat.index < 3}">
-                                            <div class="card" >
+                                            <div class="card" style="min-height:750px; max-height:max-content;">
                                                 <a th:href="@{/produto/{id}(id=${produto.id})}">
                                                     <img class="img-fluid" alt="100%x280" th:src="'data:image/png;base64,' + ${produto.imagens[0].bytes}">
                                                 </a>
@@ -261,7 +261,7 @@
                                     <div class="row">
                                         
                                         <div class="col-md-4 mb-3" th:each="produto, stat : ${produtos}"  th:if="${stat.index >= 3 and stat.index < 6}">
-                                            <div class="card" >
+                                            <div class="card" style="min-height:750px; max-height:max-content;">
                                                 <a th:href="@{/produto/{id}(id=${produto.id})}">
                                                     <img class="img-fluid" alt="100%x280" th:src="'data:image/png;base64,' + ${produto.imagens[0].bytes}">
                                                 </a>
@@ -279,7 +279,7 @@
                                     <div class="row">
         
                                         <div class="col-md-4 mb-3" th:each="produto, stat : ${produtos}"  th:if="${stat.index >= 6 and stat.index < 9}">
-                                            <div class="card" >
+                                            <div class="card" style="min-height:750px; max-height:max-content;">
                                                 <a th:href="@{/produto/{id}(id=${produto.id})}">
                                                     <img class="img-fluid" alt="100%x280" th:src="'data:image/png;base64,' + ${produto.imagens[0].bytes}">
                                                 </a>
