@@ -104,7 +104,8 @@
                          <iframe 
                          th:src="${'https://www.youtube.com/embed/' + urlV}"
                          class="d-block w-100"
-                         th:alt="|Video ${videoStat.index + #lists.size(produto.imagens) + 1}|">
+                         th:alt="|Video ${videoStat.index + #lists.size(produto.imagens) + 1}|"
+                         style="height:400px">
                      </iframe>
                     </div>
                 </div>
@@ -130,15 +131,6 @@
     <section class="rvc-differentials-section">
         
         <div class="rvc-container">
-          <div class="rvc-differential">
-            <div class="rvc-icon eco-tourism-icon">
-              <img src="/img/localizacao.png" alt="Ecoturismo Exclusivo">
-            </div>
-            <div>
-              <h3>Localização</h3>
-              <p th:text="${produto.localizacao}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quidem dolore eveniet aperiam architecto deserunt delectus, quisquam sapiente ab voluptatum dolores sint atque labore dolor amet alias neque fugiat explicabo.</p>
-            </div>
-          </div>
           <div class="rvc-differential-2">
             <div class="rvc-icon-2 custom-itineraries-icon">
               <img src="/img/descricao.png" alt="Roteiros Sob Medida">
@@ -146,6 +138,15 @@
             <div>
               <h3>Descrição</h3>
               <p th:text="${produto.descricao}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere atque, eos placeat sit veritatis maiores repellendus cupiditate quis aliquam minus excepturi perferendis assumenda laudantium quasi deleniti cumque commodi, accusamus voluptatum!</p>
+            </div>
+          </div>
+          <div class="rvc-differential" style="text-align: right; align-tems:right; justify-content:right">
+            <div>
+                <h3>Localização</h3>
+                <p th:text="${produto.localizacao}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quidem dolore eveniet aperiam architecto deserunt delectus, quisquam sapiente ab voluptatum dolores sint atque labore dolor amet alias neque fugiat explicabo.</p>
+            </div>
+            <div class="rvc-icon eco-tourism-icon">
+              <img src="/img/localizacao.png" alt="Ecoturismo Exclusivo">
             </div>
           </div>
           <div class="rvc-differential-2">
