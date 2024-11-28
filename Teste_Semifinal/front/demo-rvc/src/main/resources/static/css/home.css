@@ -237,7 +237,7 @@
 						border-bottom: 9px solid #1b3a24;
 						position: relative;
 						height: 200px;
-						background-image: url("img/parallax.jpg");
+						background-image: url("/img/parallax.jpg");
 						background-attachment: fixed;
 						background-size: cover;
 						background-position: center;
@@ -359,7 +359,7 @@
 
                 
 					.outros-roteiros {
-						background-image: url("img/parallax.jpg");
+						background-image: url("/img/parallax.jpg");
 						max-width: 900px;
 						margin: 20px auto; 
 						padding: 0px;

@@ -1,67 +1,114 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Edit Product</title>
+    <title>Editar Produto</title>
     <link rel="stylesheet" th:href="@{/css/admin.css}">
-    <script th:src="@{/js/edit.js}"></script>
+    <script th:src="@{/js/adm/edit.js}"></script>
 </head>
 <body>
-    <h1>Edit Product</h1>
-    <form id="edit-form" action="#" method="post">
-        <!-- Form fields will be populated via JavaScript -->
-        <button type="submit">Save Changes</button>
-    </form>
-
-    <script th:inline="javascript">
-        /*<![CDATA[*/
-        const productId = /*[[${productId}]]*/ '0';
-
-        fetch('http://localhost:8080/adm/' + productId)
-            .then(response => response.json())
-            .then(product => {
-                const form = document.getElementById('edit-form');
-
-                form.innerHTML = `
-                    <label for="titulo">Title:</label>
-                    <input type="text" id="titulo" name="titulo" value="${product.titulo}" required><br>
-
-                    <label for="descricao">Description:</label>
-                    <textarea id="descricao" name="descricao" required>${product.descricao}</textarea><br>
-
-                    <label for="localizacao">Location:</label>
-                    <input type="text" id="localizacao" name="localizacao" value="${product.localizacao}" required><br>
-
-                    <!-- Include fields for all other product attributes -->
-                `;
-
-                form.addEventListener('submit', function(event) {
-                    event.preventDefault();
-
-                    const formData = new FormData(form);
-                    const data = {};
-                    formData.forEach((value, key) => {
-                        data[key] = value;
-                    });
-
-                    fetch('http://localhost:8080/adm/' + productId, {
-                        method: 'PUT',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(data)
-                    })
-                    .then(response => {
-                        if (response.ok) {
-                            alert('Product updated');
-                            window.location.href = '/adm/manage';
-                        } else {
-                            alert('Error updating product');
-                        }
-                    });
-                });
-            })
-            .catch(error => console.error('Error fetching product:', error));
-        /*]]>*/
-    </script>
+    <h1>Editar Produto</h1>
+    <div class="cadastro-container container-fluid my-5">
+        <div class="container">
+            <form id="edit-form">
+                <label>Tipo:
+                    <select name="tipo" required>
+                        <option value="pacote">Pacote</option>
+                        <option value="passeio">Passeio</option>
+                    </select>
+                </label>
+                <br>
+                <label>Titulo: </label>
+                <input type="text" name="titulo" required th:value="${produto.titulo}">
+                <br>
+                <label>Descricao: </label>
+                <textarea name="descricao" rows="4" required th:text="${produto.descricao}"></textarea>
+                <br>
+                <label>Localizacao: <input type="text" name="localizacao" required th:value="${produto.localizacao}"></label>
+                <br>
+                <label>Resumo: </label>
+                <textarea name="resumo" rows="2" required th:text="${produto.resumo}"></textarea>
+                <br>
+                <div class="dynamic-inputs">
+                    <label>Itens Inclusos: </label>
+                    <div id="itensInclusos"></div>
+                    <button type="button" onclick="addInput('itensInclusos', 'itemIncluso')">Adicionar</button>
+                </div>
+                <br>
+                <div class="dynamic-inputs">
+                    <label>Dicas: </label>
+                    <div id="dicas"></div>
+                    <button type="button" onclick="addInput('dicas', 'dica')">Adicionar</button>
+                </div>
+                <br>
+                <div class="dynamic-inputs">
+                    <label>Observacoes: </label>
+                    <div id="observacoes"></div>
+                    <button type="button" onclick="addInput('observacoes', 'observacao')">Adicionar</button>
+                </div>
+                <br>
+                <div class="dynamic-inputs">
+                    <label>Faixas de Preço: </label>
+                    <table id="faixasPreco">
+                        <tr>
+                            <th>Faixa</th>
+                            <th>Preço (Alta Temporada - 1 Pessoa)</th>
+                            <th>Preço (Alta Temporada - 2 a 3 Pessoas)</th>
+                            <th>Preço (Alta Temporada - 4+ Pessoas)</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>Preço (Baixa Temporada - 1 Pessoa)</th>
+                            <th>Preço (Baixa Temporada - 2 a 3 Pessoas)</th>
+                            <th>Preço (Baixa Temporada - 4+ Pessoas)</th>
+                            <th>Action</th>
+                        </tr>
+                    </table>
+                    <button type="button" onclick="addRow()">Adicionar</button>
+                </div>
+                <br>
+                <div class="dynamic-inputs">
+                    <label>URL Videos: </label>
+                    <div id="url_video"></div>
+                    <button type="button" onclick="addInput('url_video', 'urlVideo')">Adicionar</button>
+                </div>
+                <br>
+                <label>Numero de Diarias: </label>
+                <input type="number" name="numeroDiarias" min="1" required th:value="${produto.numeroDiarias}">
+                <br>
+                <label>Hospedagem Inclusa:
+                    <select name="hospedagemInclusa" required>
+                        <option value="true" th:selected="${produto.hospedagemInclusa}">Sim</option>
+                        <option value="false" th:selected="${!produto.hospedagemInclusa}">Não</option>
+                    </select>
+                </label>
+                <br>
+                <label>Roteiro: </label>
+                <textarea name="roteiro" rows="4" required th:text="${produto.roteiro}"></textarea>
+                <br>
+                <div class="dynamic-inputs">
+                    <label>Datas Disponiveis: </label>
+                    <div id="datasDisponiveis"></div>
+                    <button type="button" onclick="addDate()">Adicionar</button>
+                </div>
+                <br>
+                <label>Limite de Vagas: </label>
+                <input type="number" name="limiteVagas" min="1" required th:value="${produto.limiteVagas}">
+                <br>
+                <div class="dynamic-inputs">
+                    <label>Imagens: </label>
+                    <table id="imagens">
+                        <tr>
+                            <th>Imagem</th>
+                            <th>Action</th>
+                        </tr>
+                    </table>
+                    <button type="button" onclick="addImageRow()">Adicionar</button>
+                </div>
+                <br>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

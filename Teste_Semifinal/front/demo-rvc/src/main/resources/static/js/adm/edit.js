@@ -1,4 +1,4 @@
-document.getElementById('tourForm').addEventListener('submit', async function(event) {
+document.getElementById('edit-form').addEventListener('submit', async function(event) {
     event.preventDefault();
 
     // Collecting form values
@@ -58,8 +58,9 @@ document.getElementById('tourForm').addEventListener('submit', async function(ev
     };
 
     // Posting the JSON data to the specified endpoint
-    fetch("http://localhost:8080/adm/produtos", {
-        method: "POST",
+    const productId = window.location.pathname.split('/').pop();
+    fetch(("http://localhost:8080/adm/" + productId), {
+        method: "PUT",
         headers: {
             "Content-Type": "application/json"
         },

@@ -391,7 +391,7 @@
 
             
             .outros-roteiros {
-                background-image: url("img/descricao.jpg");
+                background-image: url("/img/descricao.jpg");
                 max-width: 900px;
                 margin: 20px auto; 
                 padding: 0px;

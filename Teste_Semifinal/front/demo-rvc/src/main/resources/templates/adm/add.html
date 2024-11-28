@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Add Product</title>
+    <title>Adicionar Produto</title>
     <link rel="stylesheet" th:href="@{/css/admin.css}">
 </head>
 <body>
-    <h1>Add New Product</h1>
+    <h1>Adicionar Produto</h1>
     <div class="cadastro-container container-fluid my-5">
         <div class="container">
             <form id="tourForm">
@@ -15,89 +15,96 @@
                         <option value="passeio">Passeio</option>
                     </select>
                 </label>
-                
-                <label>Titulo: <input type="text" name="titulo" required></label>
-                
-                <label>Descricao:</label>
+                <br>
+                <label>Titulo: </label>
+                <input type="text" name="titulo" required>
+                <br>
+                <label>Descricao: </label>
                 <textarea name="descricao" rows="4" required></textarea>
-                
+                <br>
                 <label>Localizacao: <input type="text" name="localizacao" required></label>
-                
-                <label>Resumo:</label>
+                <br>
+                <label>Resumo: </label>
                 <textarea name="resumo" rows="2" required></textarea>
-                
+                <br>
                 <div class="dynamic-inputs">
-                    <label>Itens Inclusos:</label>
+                    <label>Itens Inclusos: </label>
                     <div id="itensInclusos"></div>
-                    <button type="button" onclick="addInput('itensInclusos', 'itemIncluso')">Add Item</button>
+                    <button type="button" onclick="addInput('itensInclusos', 'itemIncluso')">Adicionar</button>
                 </div>
-        
+                <br>
                 <div class="dynamic-inputs">
-                    <label>Dicas:</label>
+                    <label>Dicas: </label>
                     <div id="dicas"></div>
-                    <button type="button" onclick="addInput('dicas', 'dica')">Add Dica</button>
+                    <button type="button" onclick="addInput('dicas', 'dica')">Adicionar</button>
                 </div>
-        
+                <br>
                 <div class="dynamic-inputs">
-                    <label>Observacoes:</label>
+                    <label>Observacoes: </label>
                     <div id="observacoes"></div>
-                    <button type="button" onclick="addInput('observacoes', 'observacao')">Add Observacao</button>
+                    <button type="button" onclick="addInput('observacoes', 'observacao')">Adicionar</button>
                 </div>
-        
+                <br>
                 <div class="dynamic-inputs">
-                    <label>Faixas de Preço:</label>
+                    <label>Faixas de Preço: </label>
                     <table id="faixasPreco">
                         <tr>
                             <th>Faixa</th>
                             <th>Preço (Alta Temporada - 1 Pessoa)</th>
                             <th>Preço (Alta Temporada - 2 a 3 Pessoas)</th>
                             <th>Preço (Alta Temporada - 4+ Pessoas)</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <th></th>
                             <th>Preço (Baixa Temporada - 1 Pessoa)</th>
                             <th>Preço (Baixa Temporada - 2 a 3 Pessoas)</th>
                             <th>Preço (Baixa Temporada - 4+ Pessoas)</th>
                             <th>Action</th>
                         </tr>
                     </table>
-                    <button type="button" onclick="addRow()">Add Row</button>
+                    <button type="button" onclick="addRow()">Adicionar</button>
                 </div>
-                
+                <br>
                 <div class="dynamic-inputs">
-                    <label>URL Video:</label>
+                    <label>URL Videos: </label>
                     <div id="url_video"></div>
-                    <button type="button" onclick="addInput('url_video', 'urlVideo')">Add URL</button>
+                    <button type="button" onclick="addInput('url_video', 'urlVideo')">Adicionar</button>
                 </div>
-                
-                <label>Numero de Diarias: <input type="number" name="numeroDiarias" min="1" required></label>
-                
+                <br>
+                <label>Numero de Diarias: </label>
+                <input type="number" name="numeroDiarias" min="1" required>
+                <br>
                 <label>Hospedagem Inclusa:
                     <select name="hospedagemInclusa" required>
                         <option value="true">Sim</option>
                         <option value="false">Não</option>
                     </select>
                 </label>
-                
-                <label>Roteiro:</label>
+                <br>
+                <label>Roteiro: </label>
                 <textarea name="roteiro" rows="4" required></textarea>
-        
+                <br>
                 <div class="dynamic-inputs">
-                    <label>Datas Disponiveis:</label>
+                    <label>Datas Disponiveis: </label>
                     <div id="datasDisponiveis"></div>
-                    <button type="button" onclick="addDate()">Add Data</button>
+                    <button type="button" onclick="addDate()">Adicionar</button>
                 </div>
-                
-                <label>Limite de Vagas: <input type="number" name="limiteVagas" min="1" required></label>
-
+                <br>
+                <label>Limite de Vagas: </label>
+                <input type="number" name="limiteVagas" min="1" required>
+                <br>
                 <div class="dynamic-inputs">
-                    <label>Imagens:</label>
+                    <label>Imagens: </label>
                     <table id="imagens">
                         <tr>
                             <th>Imagem</th>
                             <th>Action</th>
                         </tr>
                     </table>
-                    <button type="button" onclick="addImageRow()">Add Image</button>
+                    <button type="button" onclick="addImageRow()">Adicionar</button>
                 </div>
-                
+                <br>
                 <button type="submit">Submit</button>
             </form>
         </div>

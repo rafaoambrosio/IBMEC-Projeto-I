@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.client.RestTemplate;
 
+import com.example.demo_rvc.model.Produto;
+
+import org.apache.commons.collections4.ListUtils;
 @Controller
 public class MainController {
 
@@ -52,16 +55,20 @@ public class MainController {
     @GetMapping("/passeios")
     public String passeios(Model model) {
         String url = "http://localhost:8080/passeios";
-        List<?> data = restTemplate.getForObject(url, List.class);
-        model.addAttribute("passeios", data);
+        List<Produto> data = restTemplate.getForObject(url, List.class);
+        List<List<Produto>> chunks = ListUtils.partition(data, 3);
+
+        model.addAttribute("produtos", chunks);
         return "passeios"; // Corresponds to passeios
     }
 
     @GetMapping("/pacotes")
     public String pacotes(Model model) {
         String url = "http://localhost:8080/pacotes";
-        List<?> data = restTemplate.getForObject(url, List.class);
-        model.addAttribute("pacotes", data);
+        List<Produto> data = restTemplate.getForObject(url, List.class);
+        List<List<Produto>> chunks = ListUtils.partition(data, 3);
+
+        model.addAttribute("produtos", chunks);
         return "pacotes"; // Corresponds to pacotes
     }
 

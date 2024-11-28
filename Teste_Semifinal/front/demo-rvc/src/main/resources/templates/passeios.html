@@ -14,7 +14,7 @@
     <!-- meta character set -->
     <meta charset="UTF-8">
     <!-- Site Title -->
-    <title>RVC-Pacotes</title>
+    <title>RVC-Passeios</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css'>
@@ -70,119 +70,36 @@
     <section class="pt-5 pb-5 roteiros-destaque-fundo" id="roteiros">
         
         <div class="container roteiros-destaque">
-            <h1>Pacotes</h1>
+            <h1>Passeios</h1>
             <div class="row">
                 <div class="roteiros-subtitulo">
-                    <p>Experiências mais completas para quem busca <br> Ecoturismo Sustentável</p>
+                    <p>Experiências divertidas e emocionantes para quem gosta de <br> Ecoturismo Sustentável</p>
                 </div>
                 <div class="col-12 roteiros-carrossel">
                     <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-                        
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
+                            <!-- Agrupa os produtos em conjuntos de 3 -->
+                            <div th:each="chunk, stat : ${produtos}"
+                                    th:classappend="${stat.index == 0} ? 'carousel-item active' : 'carousel-item'">
                                 <div class="row">
-                                    
-                                    <div class="col-md-4 mb-3">
+                                    <!-- Itera sobre os produtos dentro do grupo -->
+                                    <div th:each="produto : ${chunk}" class="col-md-4 mb-3">
                                         <div class="card">
-                                            <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
+                                            <!-- Exibe a imagem do produto -->
+                                            <a th:href="@{/produto/{id}(id=${produto.id})}">
+                                                <img class="img-fluid" 
+                                                        th:src="'data:image/png;base64,' + ${produto.imagens[0].bytes}" 
+                                                        alt="Product Image">
+                                            </a>
                                             <div class="card-body">
-                                                <h4 class="card-title">PACOTE X</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
-                                            </div>
-    
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title">PACOTE X</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title">PACOTE X</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
-                                            </div>
-                                        </div>
-                                    </div>
-    
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="row">
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title">PACOTE X</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
-                                            </div>
-    
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title">PACOTE X</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title">PACOTE X</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
-                                            </div>
-                                        </div>
-                                    </div>
-    
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="row">
-    
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title">PACOTE X</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
-                                            </div>
-    
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title">PACOTE X</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <a href="descricao.html"><img class="img-fluid" alt="100%x280" src="/img/pacotes.jpg"></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title">PACOTE X</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                <a class="btn btn-primary btn-custom" href="/descricao.html" role="button">Saiba Mais!</a>
+                                                <!-- Título do produto -->
+                                                <h4 class="card-title" th:text="${produto.titulo}">Título do Produto</h4>
+                                                <!-- Resumo do produto -->
+                                                <p class="card-text" th:text="${produto.resumo}">Resumo do Produto</p>
+                                                <!-- Botão Saiba Mais -->
+                                                <a class="btn btn-primary btn-custom" 
+                                                    th:href="@{/produto/{id}(id=${produto.id})}" 
+                                                    role="button">Saiba Mais!</a>
                                             </div>
                                         </div>
                                     </div>

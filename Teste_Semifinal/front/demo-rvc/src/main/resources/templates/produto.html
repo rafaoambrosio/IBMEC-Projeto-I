@@ -85,6 +85,9 @@
                         th:attr="data-slide-to=${stat.index}" 
                         th:classappend="${stat.index == 0} ? 'active'">
                     </li>
+                    <li th:each="urlVideo, videoStat : ${produto.urlVideo}" 
+                        data-target="#carouselExampleIndicators" 
+                        th:attr="data-slide-to=${videoStat.index + #lists.size(produto.imagens)}">                    </li>
                 </ol>
             
                 <!-- Carousel Inner -->
@@ -95,6 +98,14 @@
                         <img th:src="'data:image/png;base64,' + ${imagem.bytes}" 
                              class="d-block w-100" 
                              th:alt="|Slide ${stat.index + 1}|">
+                    </div>
+                    <div th:each="urlV, videoStat : ${produto.urlVideo}"
+                         class="carousel-item">
+                         <iframe 
+                         th:src="${'https://www.youtube.com/embed/' + urlV}"
+                         class="d-block w-100"
+                         th:alt="|Video ${videoStat.index + #lists.size(produto.imagens) + 1}|">
+                     </iframe>
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -107,8 +118,8 @@
                 </a>
             </div>
             <div class="info-div">
-                <h3>Por que escolher <strong>Pedrona Top</strong>?</h3>
-                <p th:text="${produto.resumo}">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero error voluptas iusto culpa doloremque maxime tempore, natus reiciendis quam accusamus voluptatum?</p>
+                <h3>Quer se <strong>aventurar</strong>?</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero error voluptas iusto culpa doloremque maxime tempore, natus reiciendis quam accusamus voluptatum?</p>
             </div>
         </div>
     </section>    
@@ -198,7 +209,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Group</th> <!-- Label column for groups (1 person, 2-3 people, etc.) -->
+                        <th>Grupo</th> <!-- Label column for groups (1 person, 2-3 people, etc.) -->
                         <th th:each="faixaPreco : ${produto.faixaPreco}" th:text="${faixaPreco.faixa}">Faixa</th>
                     </tr>
                 </thead>
@@ -226,7 +237,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Group</th> <!-- Label column for groups (1 person, 2-3 people, etc.) -->
+                        <th>Grupo</th> <!-- Label column for groups (1 person, 2-3 people, etc.) -->
                         <th th:each="faixaPreco : ${produto.faixaPreco}" th:text="${faixaPreco.faixa}">Faixa</th>
                     </tr>
                 </thead>
