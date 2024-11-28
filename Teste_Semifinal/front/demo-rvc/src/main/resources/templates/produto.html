@@ -262,12 +262,243 @@
     <!-- Tabela de Preços -->
 
 
-    <!-- Botão Formulário -->
+        <!-- Botão Formulário -->
     <section class="botao">
-        
-        <a th:href="@{/}" class="botao-forms">Entrar em Contato</a>
+        <a href="#" class="botao-forms" onclick="showForm()">Entrar em Contato</a>
     </section>
     <!-- Botão Formulário -->
+
+    <!-- Formulário de Pré-Reserva -->
+    <section class="container mt-5 formulario" id="formulario" style="display: none;">
+        <style>
+            /* Your existing CSS styles */
+            section.formulario {
+                border-radius: 15px; 
+                overflow: hidden; 
+                margin-top: 80px !important;
+            }
+
+            .formulario .row {
+                gap: 0; 
+            }
+
+            .formulario .col-md-6 {
+                padding: 0 !important;
+            }
+
+            .formulario img {
+                object-fit: cover; 
+                height: 100%; 
+            }
+
+            .card-body {
+                background-color: #1b3a24;
+                border: 5px solid #1b3a24;
+            }
+
+            .card-body label {
+                color: #eeece1;
+            }
+
+            .card-header {
+                background-color: #277342 !important;
+                border: 7px solid #277342;
+                border-top-left-radius: 15px !important;
+            }
+
+            .card-header h4 {
+                color: #eeece1;
+                font-size: 28px;
+            }
+
+            .colored-input {
+                color: #eeece1;
+            }
+
+            .colored-input:focus {
+                color: #eeece1; 
+            }
+
+            ::placeholder {
+                color: #eeece1 !important; 
+                opacity: 1; 
+            }
+
+            input::placeholder,
+            textarea::placeholder {
+                color: #eeece1 !important; 
+                font-style: italic; 
+            }
+
+            select {
+                background-color: #277342; 
+                border: 5px solid #1b3a24;
+                border-radius: 15px; 
+                color: #eeece1 !important; 
+                padding: 6px; 
+            }
+
+            select:focus {
+                outline: none;
+                border-color: #ff5722; 
+                box-shadow: 0 0 5px #ff5722;
+            }
+
+            select::placeholder {
+                color: #eeece1 !important; 
+                opacity: 1;
+            }
+
+            #name {
+                background-color: #1b3a24;
+                border: 5px solid #277342; 
+                border-radius: 5px;
+                padding: 10px;
+            }
+
+            #email {
+                background-color: #1b3a24;
+                border: 5px solid #277342; 
+                border-radius: 5px;
+                padding: 10px;
+            }
+
+            #observacoes {
+                background-color: #1b3a24;
+                border: 5px solid #277342; 
+                border-radius: 0px;
+                padding: 10px;
+            }
+
+            button[type="submit"] {
+                background-color: #277342; 
+                margin: 0 auto;
+                max-width: 200px;
+                color: white;
+                font-weight: bold;
+                border: none;
+                border-radius: 5px;
+                padding: 10px 20px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            button[type="submit"]:hover {
+                background-color: #4CAF50 !important; 
+            }
+
+            input:focus, textarea:focus, select:focus {
+                outline: none;
+                border-color: #4CAF50 !important;
+                box-shadow: 0 0 5px #277342 !important;
+            }
+
+            @media (max-width: 768px) {
+                form .form-group {
+                    margin-bottom: 1rem;
+                }
+
+                input, textarea, select, button {
+                    font-size: 16px; 
+                }
+            }
+        </style>
+        <div class="row g-0 align-items-stretch">
+            <!-- Container do formulário -->
+            <div class="col-md-6 d-flex flex-column">
+                <div class="card shadow border-0 flex-fill">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h4 class="mb-0">Pré-Reserva</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <form onsubmit="handleSubmit(event)">
+                            <!-- Nome -->
+                            <div class="form-group mb-3">
+                                <label for="name">Nome</label>
+                                <input type="text" id="name" class="form-control colored-input" placeholder="Digite seu nome" required>
+                            </div>
+                            <!-- Email -->
+                            <div class="form-group mb-3">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" class="form-control colored-input" placeholder="Digite seu email" required>
+                            </div>
+                            <!-- Hidden fields for produtoTitulo and faixaCount -->
+                            <input type="hidden" id="produtoTitulo" th:value="${produto.titulo}">
+                            <input type="hidden" id="faixaCount" th:value="${#lists.size(produto.faixaPreco)}">
+                            <!-- Dynamically generated fields for each faixaPreco -->
+                            <div th:each="faixaPreco, iterStat : ${produto.faixaPreco}" class="form-group mb-3">
+                                <label th:for="'faixa' + ${iterStat.index}" th:text="${faixaPreco.faixa}"></label>
+                                <input type="number" min="0" th:id="'faixa' + ${iterStat.index}" th:name="'faixa' + ${iterStat.index}" class="form-control colored-input" placeholder="Número de pessoas">
+                            </div>
+                            <!-- Observações -->
+                            <div class="form-group mb-4">
+                                <label for="observacoes">Observações</label>
+                                <textarea id="observacoes" class="form-control colored-input" rows="4" placeholder="Escreva aqui suas observações ou dúvidas"></textarea>
+                            </div>
+                            <!-- Botões -->
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn btn-primary btn-block">Enviar Pré-Reserva</button>
+                                <button type="button" class="btn btn-secondary btn-block" onclick="closeForm()">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Container da imagem -->
+            <div class="col-md-6 p-0 d-flex">
+                <img src="/img/pacotes.jpg" alt="Descrição da imagem" class="img-fluid w-100">
+            </div>
+        </div>
+    </section>
+    <!-- Formulário de Pré-Reserva -->
+
+    <!-- JavaScript -->
+    <script>
+    function showForm() {
+        document.getElementById('formulario').style.display = 'block';
+        window.scrollTo(0, document.getElementById('formulario').offsetTop);
+    }
+
+    function closeForm() {
+        document.getElementById('formulario').style.display = 'none';
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Collect data
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var observacoes = document.getElementById('observacoes').value;
+        var produtoTitulo = document.getElementById('produtoTitulo').value;
+        var message = "Nome: " + name + "\n";
+        message += "Email: " + email + "\n";
+        message += "Produto: " + produtoTitulo + "\n";
+
+        // Collect faixaPreco data
+        var faixaCount = parseInt(document.getElementById('faixaCount').value);
+
+        for (var i = 0; i < faixaCount; i++) {
+            var faixaLabel = document.querySelector('label[for="faixa' + i + '"]').innerText;
+            var faixaValue = document.getElementById('faixa' + i).value;
+            if (faixaValue && faixaValue != '0') {
+                message += faixaLabel + ": " + faixaValue + "\n";
+            }
+        }
+
+        if (observacoes) {
+            message += "Observações: " + observacoes + "\n";
+        }
+
+        // Create the WhatsApp link
+        var phoneNumber = '5511971210081'; // WhatsApp number with country code
+        var whatsappLink = 'https://wa.me/' + phoneNumber + '?text=' + encodeURIComponent(message);
+
+        // Open the WhatsApp link in a new tab
+        window.open(whatsappLink, '_blank');
+    }
+    </script>
+
 
 
     <!-- Outros Roteiros -->
